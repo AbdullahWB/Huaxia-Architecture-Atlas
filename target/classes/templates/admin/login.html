@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="layout/base :: page('Admin Login', ~{::section})"
+>
+  <section class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="bg-white border rounded-4 p-4 shadow-sm">
+        <h1 class="h5 mb-3">Admin Login</h1>
+
+        <div class="alert alert-danger py-2" th:if="${param.error}">
+          Invalid username or password.
+        </div>
+        <div class="alert alert-success py-2" th:if="${param.logout}">
+          You have been logged out.
+        </div>
+
+        <form th:action="@{/admin/login}" method="post" class="vstack gap-3">
+          <input
+            type="hidden"
+            th:name="${_csrf.parameterName}"
+            th:value="${_csrf.token}"
+          />
+
+          <div>
+            <label class="form-label">Username</label>
+            <input
+              class="form-control"
+              name="username"
+              autocomplete="username"
+              required
+            />
+          </div>
+
+          <div>
+            <label class="form-label">Password</label>
+            <input
+              class="form-control"
+              type="password"
+              name="password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+
+          <button class="btn btn-dark w-100">Login</button>
+
+          <div class="small text-muted mt-2">
+            Demo: <span class="fw-semibold">admin / admin123</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</html>

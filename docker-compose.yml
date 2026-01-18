@@ -1,0 +1,32 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: huaxia_atlas_mysql
+    restart: unless-stopped
+
+    env_file:
+      - .env
+
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+
+    ports:
+      - "${MYSQL_PORT}:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+      # Teacher DB init scripts (schema + seed)
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+
+    command: ["--default-authentication-plugin=mysql_native_password"]
+
+  adminer:
+    image: adminer
+    container_name: huaxia_atlas_adminer
+    restart: unless-stopped
+    ports:
+      - "${ADMINER_PORT}:8080"
+
+volumes:
+  mysql_data:

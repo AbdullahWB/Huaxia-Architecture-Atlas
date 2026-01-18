@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    import: optional:file:.env[.properties]
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate # DB schema is created by Docker init SQL
+    open-in-view: true
+
+  thymeleaf:
+    cache: false
+
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 6MB
+
+app:
+  upload-dir: ${APP_UPLOAD_DIR:uploads}
+
+  # DeepSeek (Chatbot)
+  deepseek:
+    api-key: ${DEEPSEEK_API_KEY:}
+    model: ${DEEPSEEK_MODEL:deepseek-chat}
+    base-url: ${DEEPSEEK_BASE_URL:https://api.deepseek.com/v1}
+
+  # Python ML Service (FastAPI)
+  ml-service:
+    base-url: ${ML_SERVICE_URL:http://127.0.0.1:8001}

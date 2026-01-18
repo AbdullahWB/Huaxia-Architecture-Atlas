@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="layout/base :: page('Posts', ~{::section})"
+>
+  <section>
+    <div class="d-flex align-items-center justify-content-between">
+      <h1 class="h4 mb-0">Community Posts</h1>
+      <a class="btn btn-dark btn-sm" th:href="@{/posts/new}">New Post</a>
+    </div>
+
+    <div class="vstack gap-2 mt-3">
+      <a
+        class="text-decoration-none"
+        th:each="p : ${items}"
+        th:href="@{/posts/{id}(id=${p.id})}"
+      >
+        <div class="bg-white border rounded-4 p-3 hover-card">
+          <div
+            class="small text-muted"
+            th:text="${p.authorName} ?: 'Anonymous'"
+          >
+            Author
+          </div>
+          <div class="fw-semibold" th:text="${p.title}">Title</div>
+          <div
+            class="small text-muted"
+            th:text="${#strings.abbreviate(p.content, 160)}"
+          >
+            Excerpt
+          </div>
+        </div>
+      </a>
+
+      <div class="text-muted" th:if="${items == null || #lists.isEmpty(items)}">
+        No approved posts yet.
+      </div>
+    </div>
+  </section>
+</html>

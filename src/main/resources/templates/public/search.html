@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="layout/base :: page('AI Search', ~{::section})"
+>
+  <section>
+    <div
+      class="d-flex flex-wrap align-items-center justify-content-between gap-2"
+    >
+      <h1 class="h4 mb-0">AI Search</h1>
+      <form class="d-flex gap-2" th:action="@{/search}" method="get">
+        <input
+          class="form-control"
+          name="q"
+          placeholder="Search..."
+          th:value="${q}"
+        />
+        <button class="btn btn-dark">Search</button>
+      </form>
+    </div>
+
+    <div class="small text-muted mt-2" th:if="${q != null and !q.isBlank()}">
+      Results: <span th:text="${count}">0</span>
+    </div>
+
+    <div class="vstack gap-2 mt-3">
+      <div class="bg-white border rounded-4 p-3" th:each="r : ${results}">
+        <div class="d-flex justify-content-between align-items-start gap-2">
+          <div>
+            <div class="small text-muted">
+              score: <span th:text="${r.score}">0</span>
+            </div>
+            <a
+              class="h6 text-decoration-none d-block mb-1"
+              th:href="@{/buildings/{id}(id=${r.buildingId})}"
+              th:text="${r.name}"
+              >Name</a
+            >
+            <div class="small text-muted" th:text="${r.snippet}">Snippet</div>
+          </div>
+
+          <div class="text-end">
+            <div class="small text-muted mb-1">matched</div>
+            <span
+              class="badge text-bg-light border ms-1"
+              th:each="f : ${r.matchedFields}"
+              th:text="${f}"
+              >field</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="text-muted"
+        th:if="${results == null || #lists.isEmpty(results)}"
+      >
+        Enter a query to search buildings.
+      </div>
+    </div>
+  </section>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="layout/base :: page('Admin Dashboard', ~{::section})"
+>
+  <section class="hx-section">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+      <div>
+        <div class="hx-breadcrumb mb-2">Admin <span>Dashboard</span></div>
+        <h1 class="h4 mb-1">Operations overview</h1>
+        <p class="text-muted mb-0">
+          Track content health, review queues, and inbox in one glance.
+        </p>
+      </div>
+      <a class="btn btn-outline-secondary btn-sm" th:href="@{/}">Back to site</a>
+    </div>
+
+    <div class="hx-quick-stats mb-3">
+      <div class="hx-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-muted">Buildings</span>
+          <a th:href="@{/admin/buildings}" class="small text-decoration-none">Manage</a>
+        </div>
+        <div class="display-6 fw-semibold text-white" th:text="${buildingCount}">0</div>
+        <p class="text-muted mb-2">Total curated building entries</p>
+        <div class="progress" role="progressbar" aria-label="Buildings coverage">
+          <div
+            class="progress-bar bg-info"
+            th:style="'width:' + ${buildingCount > 0 ? 100 : 40} + '%'"
+          ></div>
+        </div>
+      </div>
+
+      <div class="hx-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-muted">Pending posts</span>
+          <a th:href="@{/admin/posts}" class="small text-decoration-none">Review</a>
+        </div>
+        <div class="display-6 fw-semibold text-white" th:text="${pendingPostCount}">0</div>
+        <p class="text-muted mb-2">Awaiting moderation</p>
+        <div class="progress" role="progressbar" aria-label="Posts review">
+          <div
+            class="progress-bar bg-warning"
+            th:style="'width:' + ${pendingPostCount > 0 ? 70 : 25} + '%'"
+          ></div>
+        </div>
+      </div>
+
+      <div class="hx-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-muted">Unread messages</span>
+          <a th:href="@{/admin/messages}" class="small text-decoration-none">Open inbox</a>
+        </div>
+        <div class="display-6 fw-semibold text-white" th:text="${unreadMessageCount}">0</div>
+        <p class="text-muted mb-2">New contact submissions</p>
+        <div class="progress" role="progressbar" aria-label="Inbox">
+          <div
+            class="progress-bar bg-success"
+            th:style="'width:' + ${unreadMessageCount > 0 ? 60 : 20} + '%'"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-lg-8">
+        <div class="hx-card h-100">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h2 class="h6 mb-0 text-white">Review queues</h2>
+            <span class="badge text-bg-light">Live</span>
+          </div>
+          <div class="hx-table-card mt-2">
+            <table class="table table-dark table-hover mb-0 align-middle">
+              <thead>
+                <tr>
+                  <th scope="col">Queue</th>
+                  <th scope="col">Status</th>
+                  <th scope="col" class="text-end">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Community posts</td>
+                  <td>
+                    <span class="hx-tag" th:text="${pendingPostCount} + ' pending'">0 pending</span>
+                  </td>
+                  <td class="text-end">
+                    <a class="btn btn-outline-secondary btn-sm" th:href="@{/admin/posts}">Moderate</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Messages</td>
+                  <td>
+                    <span class="hx-tag" th:text="${unreadMessageCount} + ' unread'">0 unread</span>
+                  </td>
+                  <td class="text-end">
+                    <a class="btn btn-outline-secondary btn-sm" th:href="@{/admin/messages}">Inbox</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Buildings</td>
+                  <td>
+                    <span class="hx-tag" th:text="${buildingCount} + ' total'">0 total</span>
+                  </td>
+                  <td class="text-end">
+                    <a class="btn btn-outline-secondary btn-sm" th:href="@{/admin/buildings}">Catalog</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="hx-card h-100">
+          <h2 class="h6 mb-3 text-white">Quick actions</h2>
+          <div class="d-flex flex-column gap-2">
+            <a class="btn btn-dark btn-sm" th:href="@{/admin/buildings/new}">Add building</a>
+            <a class="btn btn-outline-secondary btn-sm" th:href="@{/admin/posts}">Moderate posts</a>
+            <a class="btn btn-outline-secondary btn-sm" th:href="@{/admin/messages}">View messages</a>
+            <a class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#hxInfoModal">
+              Curation process
+            </a>
+          </div>
+          <div class="hx-section-divider"></div>
+          <div>
+            <div class="small text-muted">System health</div>
+            <div class="hx-spark mt-2"></div>
+            <p class="text-muted small mt-2 mb-0">
+              Data service, ML service, and AI chat endpoints are monitored via startup health checks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</html>

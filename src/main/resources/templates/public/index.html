@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="layout/base :: page('Home', ~{::section})"
+>
+  <section class="hx-section">
+    <div class="hx-banner-row">
+      <div class="hx-hero">
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <span class="hx-chip">Curated</span>
+          <span class="hx-chip">AI + Human review</span>
+          <span class="hx-chip">Pre-1911 China</span>
+        </div>
+        <h1 class="display-6 fw-bold mb-2">
+          Huaxia Architecture Atlas
+        </h1>
+        <p class="mb-3">
+          Search, explore, and chat with an AI guide about bridges, palaces, gardens,
+          and fortifications across dynasties.
+        </p>
+        <form class="d-flex flex-column flex-md-row gap-2" th:action="@{/search}" method="get">
+          <input
+            class="form-control form-control-lg"
+            name="q"
+            placeholder="Search: bridge, courtyard, Ming palace..."
+            aria-label="Search buildings"
+          />
+          <button class="btn btn-dark btn-lg" type="submit">Search</button>
+        </form>
+        <div class="mt-3 d-flex flex-wrap gap-2">
+          <a class="btn btn-outline-secondary btn-sm" th:href="@{/explore}">Explore</a>
+          <a class="btn btn-outline-secondary btn-sm" th:href="@{/chat}">AI Chat</a>
+          <button
+            class="btn btn-dark btn-sm"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#hxInfoModal"
+          >
+            How it works
+          </button>
+        </div>
+      </div>
+
+      <div class="hx-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="hx-breadcrumb">Overview <span>Live</span></span>
+          <span class="badge text-bg-light">Updated daily</span>
+        </div>
+        <div class="hx-floating-banner mb-3">
+          <div class="small text-muted">Signal</div>
+          <div class="h5 text-white mb-2">Verified entries &amp; fresh discoveries</div>
+          <p class="text-muted mb-0">
+            Teacher-reviewed seed data plus AI-assisted suggestions keep the collection
+            current and trustworthy.
+          </p>
+        </div>
+        <div class="hx-quick-stats">
+          <div>
+            <div class="small text-muted">Bridges &amp; fortifications</div>
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="h4 mb-0">+8 curated</span>
+              <span class="hx-chip">Engineering</span>
+            </div>
+            <div class="hx-spark mt-2"></div>
+          </div>
+          <div>
+            <div class="small text-muted">Palaces &amp; residences</div>
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="h4 mb-0">+12 featured</span>
+              <span class="hx-chip">Spatial</span>
+            </div>
+            <div class="hx-spark mt-2"></div>
+          </div>
+          <div>
+            <div class="small text-muted">Community posts</div>
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="h4 mb-0">Active</span>
+              <span class="hx-chip">Moderated</span>
+            </div>
+            <div class="hx-spark mt-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-between mt-4">
+      <h2 class="h5 mb-0 text-white">Featured Buildings</h2>
+      <a class="small text-decoration-none" th:href="@{/explore}">View all</a>
+    </div>
+
+    <div class="row g-3 mt-2">
+      <div class="col-md-4" th:each="b : ${featured}">
+        <div class="hx-card h-100">
+          <img
+            th:src="${b.coverImage} ?: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80'"
+            alt="Building cover"
+          />
+          <div class="d-flex justify-content-between align-items-center mt-3 mb-1">
+            <div class="small text-muted" th:text="${b.dynasty} + ' · ' + ${b.type}">
+              Dynasty · Type
+            </div>
+            <span class="badge text-bg-light">Curated</span>
+          </div>
+          <h3 class="h5 mb-1 text-white" th:text="${b.name}">Building name</h3>
+          <p class="text-muted mb-2" th:text="${b.location}">Location</p>
+          <div class="mb-2">
+            <span class="hx-tag" th:text="${b.type}">Type</span>
+            <span class="hx-tag" th:text="${b.dynasty}">Dynasty</span>
+            <span class="hx-tag" th:if="${b.tags}" th:text="${b.tags}">Tags</span>
+          </div>
+          <div class="d-flex gap-2">
+            <a
+              class="btn btn-dark btn-sm"
+              th:href="@{/buildings/{id}(id=${b.id})}"
+              >Open</a
+            >
+            <a
+              class="btn btn-outline-secondary btn-sm"
+              th:href="@{/explore}"
+              >More like this</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hx-section-divider"></div>
+
+    <div class="row g-3">
+      <div class="col-lg-4">
+        <div class="hx-card h-100">
+          <h3 class="h5 text-white mb-2">Browse by theme</h3>
+          <p class="text-muted">
+            Quickly jump into curated themes with AI-assisted related results.
+          </p>
+          <div class="d-flex flex-wrap gap-2 mt-2">
+            <span class="hx-tag">Courtyards</span>
+            <span class="hx-tag">Bridges</span>
+            <span class="hx-tag">Palaces</span>
+            <span class="hx-tag">Gardens</span>
+            <span class="hx-tag">Urban fabric</span>
+            <span class="hx-tag">Fortifications</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="hx-card h-100">
+          <h3 class="h5 text-white mb-2">AI Chat + Context</h3>
+          <p class="text-muted">
+            Ask the Atlas a question; it cites nearby entries and avoids inventing facts.
+          </p>
+          <div class="d-flex gap-2 mt-2">
+            <a class="btn btn-dark btn-sm" th:href="@{/chat}">Open chat</a>
+            <a class="btn btn-outline-secondary btn-sm" th:href="@{/search}">Context search</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="hx-card h-100">
+          <h3 class="h5 text-white mb-2">Contribute &amp; review</h3>
+          <p class="text-muted">
+            Share findings via community posts; admins triage with the ML service and AI search.
+          </p>
+          <div class="d-flex gap-2 mt-2">
+            <a class="btn btn-outline-secondary btn-sm" th:href="@{/posts}">View posts</a>
+            <a class="btn btn-outline-secondary btn-sm" th:href="@{/contact}">Contact admin</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</html>
