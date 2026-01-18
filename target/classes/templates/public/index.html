@@ -109,12 +109,22 @@
             <span class="hx-tag" th:text="${b.dynasty}">Dynasty</span>
             <span class="hx-tag" th:if="${b.tags}" th:text="${b.tags}">Tags</span>
           </div>
-          <div class="d-flex gap-2">
+          <div class="d-flex flex-wrap gap-2">
             <a
               class="btn btn-dark btn-sm"
               th:href="@{/buildings/{id}(id=${b.id})}"
               >Open</a
             >
+            <button
+              class="btn btn-outline-secondary btn-sm"
+              type="button"
+              data-ai-explain
+              data-ai-type="buildings"
+              data-ai-label="Building summary"
+              th:attr="data-ai-id=${b.id},data-ai-title=${b.name}"
+            >
+              AI explain
+            </button>
             <a
               class="btn btn-outline-secondary btn-sm"
               th:href="@{/explore}"

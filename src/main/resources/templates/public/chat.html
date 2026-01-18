@@ -72,7 +72,7 @@
         <div class="hx-chat-log" data-chat-scroll>
           <div
             class="hx-chat-empty"
-            th:if="${history == null || #lists.isEmpty(history)}"
+            th:if="${(history == null || #lists.isEmpty(history)) and ((lastAnswer == null || lastAnswer.isBlank()) and (answer == null || answer.isBlank()))}"
           >
             <div class="hx-chat-empty-title">Start a conversation</div>
             <div class="text-muted small">
@@ -112,6 +112,47 @@
               </div>
             </div>
           </div>
+          <div
+            class="hx-chat-thread"
+            th:if="${(history == null || #lists.isEmpty(history)) and ((lastAnswer != null and !lastAnswer.isBlank()) or (answer != null and !answer.isBlank()))}"
+          >
+            <div class="hx-chat-message hx-chat-user">
+              <div class="hx-chat-bubble">
+                <div class="small text-muted mb-1">You</div>
+                <div
+                  class="white-space-prewrap"
+                  th:text="${(lastQuestion != null and !lastQuestion.isBlank()) ? lastQuestion : question}"
+                >
+                  Question
+                </div>
+              </div>
+            </div>
+
+            <div class="hx-chat-message hx-chat-assistant">
+              <div class="hx-chat-avatar">Atlas</div>
+              <div class="hx-chat-bubble">
+                <div class="small text-muted mb-1">Atlas</div>
+                <div
+                  class="white-space-prewrap"
+                  th:text="${(lastAnswer != null and !lastAnswer.isBlank()) ? lastAnswer : answer}"
+                >
+                  Answer
+                </div>
+
+                <details
+                  class="mt-2"
+                  th:if="${(lastPromptUsed != null and !lastPromptUsed.isBlank()) or (promptUsed != null and !promptUsed.isBlank())}"
+                >
+                  <summary class="small text-muted">Context used</summary>
+                  <pre
+                    class="small mt-2 p-2 border rounded bg-white"
+                    th:text="${(lastPromptUsed != null and !lastPromptUsed.isBlank()) ? lastPromptUsed : promptUsed}"
+                  ></pre>
+                </details>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <form th:action="@{/chat}" method="post" class="hx-chat-input" data-chat-form>

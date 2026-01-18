@@ -39,7 +39,7 @@ public class SecurityConfig {
 
                 // Public pages
                 .requestMatchers("/", "/explore/**", "/buildings/**", "/search/**", "/chat/**",
-                        "/posts/**", "/contact/**", "/products/**")
+                        "/posts/**", "/contact/**", "/products/**", "/api/ai/explain/**")
                 .permitAll()
 
                 // Static assets + uploaded images

@@ -27,6 +27,9 @@ public class ChatController {
     public String chatPage(HttpSession session, Model model) {
         model.addAttribute("question", "");
         model.addAttribute("answer", "");
+        model.addAttribute("lastQuestion", "");
+        model.addAttribute("lastAnswer", "");
+        model.addAttribute("lastPromptUsed", "");
         model.addAttribute("history", getHistory(session));
         return "public/chat";
     }
@@ -57,6 +60,9 @@ public class ChatController {
 
         model.addAttribute("question", "");
         model.addAttribute("answer", result.answer());
+        model.addAttribute("lastQuestion", q);
+        model.addAttribute("lastAnswer", result.answer());
+        model.addAttribute("lastPromptUsed", result.promptUsed());
         model.addAttribute("promptUsed", result.promptUsed());
         model.addAttribute("history", history);
 

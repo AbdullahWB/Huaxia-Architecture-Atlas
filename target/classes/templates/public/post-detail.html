@@ -72,6 +72,16 @@
           <h2 class="h6 mb-2">Related actions</h2>
           <div class="d-flex flex-column gap-2">
             <a class="btn btn-outline-secondary btn-sm" th:href="@{/posts}">Back to posts</a>
+            <button
+              class="btn btn-outline-secondary btn-sm"
+              type="button"
+              data-ai-explain
+              data-ai-type="posts"
+              data-ai-label="Post summary"
+              th:attr="data-ai-id=${post.id},data-ai-title=${post.title}"
+            >
+              AI explain
+            </button>
             <a class="btn btn-dark btn-sm" th:href="@{/posts/new}" sec:authorize="isAuthenticated()">New post</a>
           </div>
         </div>

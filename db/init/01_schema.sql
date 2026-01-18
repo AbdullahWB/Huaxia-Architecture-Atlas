@@ -49,6 +49,8 @@ CREATE TABLE IF NOT EXISTS messages (
     email VARCHAR(200) NOT NULL,
     subject VARCHAR(200) NULL,
     message TEXT NOT NULL,
+    admin_reply TEXT NULL,
+    ai_reply TEXT NULL,
     is_read TINYINT(1) NOT NULL DEFAULT 0,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE = InnoDB;

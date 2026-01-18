@@ -654,3 +654,26 @@ pre {
     max-height: none;
   }
 }
+
+
+/* AI explain */
+
+.hx-ai-meta {
+  letter-spacing: 0.2px;
+}
+
+.hx-ai-body {
+  border: 1px solid var(--hx-border);
+  border-radius: var(--hx-radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 1rem;
+  min-height: 140px;
+}
+
+.hx-ai-reply {
+  border: 1px solid var(--hx-border);
+  border-radius: var(--hx-radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.85rem 1rem;
+  min-height: 120px;
+}

@@ -30,7 +30,17 @@
             </div>
           </div>
 
-          <div class="mt-3 d-flex align-items-center gap-2">
+          <div class="mt-3 d-flex flex-wrap align-items-center gap-2">
+            <button
+              class="btn btn-outline-secondary btn-sm"
+              type="button"
+              data-ai-explain
+              data-ai-type="products"
+              data-ai-label="Product summary"
+              th:attr="data-ai-id=${p.id},data-ai-title=${p.name}"
+            >
+              AI explain
+            </button>
             <form
               sec:authorize="isAuthenticated()"
               th:action="@{/products/{id}/buy(id=${p.id})}"

@@ -72,11 +72,23 @@
             <p class="small text-muted mb-2" th:text="${b.location}">
               Location
             </p>
-            <a
-              class="btn btn-sm btn-outline-dark"
-              th:href="@{/buildings/{id}(id=${b.id})}"
-              >Open</a
-            >
+            <div class="d-flex flex-wrap gap-2">
+              <a
+                class="btn btn-sm btn-outline-dark"
+                th:href="@{/buildings/{id}(id=${b.id})}"
+                >Open</a
+              >
+              <button
+                class="btn btn-sm btn-outline-dark"
+                type="button"
+                data-ai-explain
+                data-ai-type="buildings"
+                data-ai-label="Building summary"
+                th:attr="data-ai-id=${b.id},data-ai-title=${b.name}"
+              >
+                AI explain
+              </button>
+            </div>
           </div>
         </div>
       </div>

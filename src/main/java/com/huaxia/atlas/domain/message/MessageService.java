@@ -59,6 +59,24 @@ public class MessageService {
         });
     }
 
+    @Transactional
+    public Optional<Message> saveAdminReply(Long id, String reply) {
+        String trimmed = reply == null ? "" : reply.trim();
+        return repo.findById(id).map(m -> {
+            m.setAdminReply(trimmed.isEmpty() ? null : trimmed);
+            return repo.save(m);
+        });
+    }
+
+    @Transactional
+    public Optional<Message> saveAiReply(Long id, String reply) {
+        String trimmed = reply == null ? "" : reply.trim();
+        return repo.findById(id).map(m -> {
+            m.setAiReply(trimmed.isEmpty() ? null : trimmed);
+            return repo.save(m);
+        });
+    }
+
     private String blankToNull(String s) {
         if (s == null)
             return null;

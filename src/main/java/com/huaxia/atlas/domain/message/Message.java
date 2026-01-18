@@ -23,6 +23,12 @@ public class Message {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String message;
 
+    @Column(name = "admin_reply", columnDefinition = "TEXT")
+    private String adminReply;
+
+    @Column(name = "ai_reply", columnDefinition = "TEXT")
+    private String aiReply;
+
     @Column(name = "is_read", nullable = false)
     private boolean isRead = false;
 
@@ -68,6 +74,22 @@ public class Message {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getAdminReply() {
+        return adminReply;
+    }
+
+    public void setAdminReply(String adminReply) {
+        this.adminReply = adminReply;
+    }
+
+    public String getAiReply() {
+        return aiReply;
+    }
+
+    public void setAiReply(String aiReply) {
+        this.aiReply = aiReply;
     }
 
     public boolean isRead() {
