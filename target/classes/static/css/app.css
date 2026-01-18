@@ -677,3 +677,33 @@ pre {
   padding: 0.85rem 1rem;
   min-height: 120px;
 }
+
+
+.hx-avatar-sm {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--hx-border);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hx-avatar-lg {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid var(--hx-border);
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #e9edf5;
+  overflow: hidden;
+}
+
+.hx-avatar-lg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

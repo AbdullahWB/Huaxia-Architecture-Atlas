@@ -2,6 +2,7 @@ package com.huaxia.atlas.web.site;
 
 import com.huaxia.atlas.domain.comment.dto.CommentForm;
 import com.huaxia.atlas.domain.post.Post;
+import com.huaxia.atlas.domain.post.PostComment;
 import com.huaxia.atlas.domain.post.PostInteractionService;
 import com.huaxia.atlas.domain.post.PostService;
 import com.huaxia.atlas.domain.post.dto.PostCreateForm;
@@ -15,6 +16,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
 
 @Controller
 @RequestMapping("/posts")
@@ -39,7 +47,16 @@ public class PostController {
             Model model
     ) {
         var result = postService.listApproved(page, size);
-        model.addAttribute("items", result.getContent());
+        var items = result.getContent();
+        var emails = items.stream()
+                .map(Post::getAuthorEmail)
+                .filter(Objects::nonNull)
+                .map(String::trim)
+                .filter(e -> !e.isEmpty())
+                .collect(Collectors.toList());
+
+        model.addAttribute("items", items);
+        model.addAttribute("authorMap", userService.mapByEmails(emails));
         model.addAttribute("page", result);
         return "public/posts";
     }
@@ -49,8 +66,25 @@ public class PostController {
         Post post = postService.getApproved(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
+        List<PostComment> allComments = postInteractionService.listComments(id);
+        List<PostComment> rootComments = new ArrayList<>();
+        LinkedHashMap<Long, List<PostComment>> commentReplies = new LinkedHashMap<>();
+        for (PostComment comment : allComments) {
+            if (comment.getParent() == null) {
+                rootComments.add(comment);
+            } else if (comment.getParent() != null) {
+                commentReplies
+                        .computeIfAbsent(comment.getParent().getId(), k -> new ArrayList<>())
+                        .add(comment);
+            }
+        }
+
+        userService.findByLogin(post.getAuthorEmail())
+                .ifPresent(author -> model.addAttribute("author", author));
+
         model.addAttribute("post", post);
-        model.addAttribute("comments", postInteractionService.listComments(id));
+        model.addAttribute("comments", rootComments);
+        model.addAttribute("commentReplies", commentReplies);
         model.addAttribute("likeCount", postInteractionService.countLikes(id));
         model.addAttribute("commentForm", new CommentForm());
 
@@ -110,6 +144,7 @@ public class PostController {
             @PathVariable("id") Long id,
             @Valid @ModelAttribute("commentForm") CommentForm form,
             BindingResult bindingResult,
+            @RequestParam(name = "parentId", required = false) Long parentId,
             Authentication authentication,
             RedirectAttributes ra) {
         if (bindingResult.hasErrors()) {
@@ -124,7 +159,7 @@ public class PostController {
         var user = userService.findByLogin(authentication.getName())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED));
 
-        postInteractionService.addComment(id, user.getId(), form.getContent());
+        postInteractionService.addComment(id, user.getId(), form.getContent(), parentId);
         ra.addFlashAttribute("success", "Comment added.");
         return "redirect:/posts/" + id;
     }

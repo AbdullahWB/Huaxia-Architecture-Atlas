@@ -3,6 +3,7 @@ package com.huaxia.atlas.domain.user;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
+import java.util.List;
 
 public interface UserRepository extends JpaRepository<UserAccount, Long> {
 
@@ -17,4 +18,8 @@ public interface UserRepository extends JpaRepository<UserAccount, Long> {
     boolean existsByEmailIgnoreCase(String email);
 
     long countByRole(UserRole role);
+
+    List<UserAccount> findTop10ByOrderByCreatedAtDesc();
+
+    List<UserAccount> findByEmailIgnoreCaseIn(List<String> emails);
 }

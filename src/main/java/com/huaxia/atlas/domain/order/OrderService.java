@@ -48,6 +48,24 @@ public class OrderService {
         return orderRepository.countByStatus(OrderStatus.PENDING);
     }
 
+    public java.math.BigDecimal totalRevenue() {
+        return orderRepository.sumTotalByStatus(OrderStatus.COMPLETED);
+    }
+
+    @Transactional
+    public Order markPaid(Long orderId, Long userId) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new IllegalArgumentException("Order not found"));
+        if (!order.getUser().getId().equals(userId)) {
+            throw new IllegalArgumentException("Order does not belong to user");
+        }
+        if (order.getStatus() == OrderStatus.COMPLETED) {
+            return order;
+        }
+        order.setStatus(OrderStatus.COMPLETED);
+        return orderRepository.save(order);
+    }
+
     @Transactional
     public Order createOrder(Long userId, Long productId, int quantity) {
         if (quantity < 1) {

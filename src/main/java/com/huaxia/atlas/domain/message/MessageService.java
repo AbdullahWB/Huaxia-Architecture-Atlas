@@ -50,6 +50,13 @@ public class MessageService {
         return repo.countByIsRead(false);
     }
 
+    public java.util.List<Message> listForEmail(String email) {
+        if (email == null || email.isBlank()) {
+            return java.util.List.of();
+        }
+        return repo.findTop10ByEmailIgnoreCaseOrderByCreatedAtDesc(email.trim());
+    }
+
     // Admin: mark read/unread
     @Transactional
     public Optional<Message> setRead(Long id, boolean read) {

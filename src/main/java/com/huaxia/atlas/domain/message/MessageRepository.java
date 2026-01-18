@@ -8,5 +8,7 @@ public interface MessageRepository extends JpaRepository<Message, Long> {
 
     Page<Message> findByIsReadOrderByCreatedAtDesc(boolean isRead, Pageable pageable);
 
+    java.util.List<Message> findTop10ByEmailIgnoreCaseOrderByCreatedAtDesc(String email);
+
     long countByIsRead(boolean isRead);
 }

@@ -27,7 +27,7 @@ public class BuildingInteractionService {
     }
 
     public List<BuildingComment> listComments(Long buildingId) {
-        return commentRepository.findByBuildingIdOrderByCreatedAtDesc(buildingId);
+        return commentRepository.findByBuildingIdOrderByCreatedAtAsc(buildingId);
     }
 
     public long countLikes(Long buildingId) {
@@ -39,7 +39,7 @@ public class BuildingInteractionService {
     }
 
     @Transactional
-    public void addComment(Long buildingId, Long userId, String content) {
+    public void addComment(Long buildingId, Long userId, String content, Long parentId) {
         Building building = buildingRepository.findById(buildingId)
                 .orElseThrow(() -> new IllegalArgumentException("Building not found"));
         UserAccount user = userRepository.findById(userId)
@@ -49,6 +49,16 @@ public class BuildingInteractionService {
         comment.setBuilding(building);
         comment.setUser(user);
         comment.setContent(content.trim());
+
+        if (parentId != null) {
+            BuildingComment parent = commentRepository.findById(parentId)
+                    .orElseThrow(() -> new IllegalArgumentException("Parent comment not found"));
+            if (!parent.getBuilding().getId().equals(buildingId)) {
+                throw new IllegalArgumentException("Parent comment does not belong to this building");
+            }
+            comment.setParent(parent);
+        }
+
         commentRepository.save(comment);
     }
 

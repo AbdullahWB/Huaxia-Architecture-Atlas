@@ -8,5 +8,7 @@ public interface BuildingCommentRepository extends JpaRepository<BuildingComment
 
     List<BuildingComment> findByBuildingIdOrderByCreatedAtDesc(Long buildingId);
 
+    List<BuildingComment> findByBuildingIdOrderByCreatedAtAsc(Long buildingId);
+
     long countByBuildingId(Long buildingId);
 }

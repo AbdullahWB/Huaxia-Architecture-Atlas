@@ -20,6 +20,10 @@ public class PostComment {
     @JoinColumn(name = "user_id", nullable = false)
     private UserAccount user;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id")
+    private PostComment parent;
+
     @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
 
@@ -48,6 +52,14 @@ public class PostComment {
 
     public void setUser(UserAccount user) {
         this.user = user;
+    }
+
+    public PostComment getParent() {
+        return parent;
+    }
+
+    public void setParent(PostComment parent) {
+        this.parent = parent;
     }
 
     public String getContent() {

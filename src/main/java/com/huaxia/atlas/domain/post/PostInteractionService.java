@@ -27,7 +27,7 @@ public class PostInteractionService {
     }
 
     public List<PostComment> listComments(Long postId) {
-        return commentRepository.findByPostIdOrderByCreatedAtDesc(postId);
+        return commentRepository.findByPostIdOrderByCreatedAtAsc(postId);
     }
 
     public long countLikes(Long postId) {
@@ -39,7 +39,7 @@ public class PostInteractionService {
     }
 
     @Transactional
-    public void addComment(Long postId, Long userId, String content) {
+    public void addComment(Long postId, Long userId, String content, Long parentId) {
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new IllegalArgumentException("Post not found"));
         UserAccount user = userRepository.findById(userId)
@@ -49,6 +49,16 @@ public class PostInteractionService {
         comment.setPost(post);
         comment.setUser(user);
         comment.setContent(content.trim());
+
+        if (parentId != null) {
+            PostComment parent = commentRepository.findById(parentId)
+                    .orElseThrow(() -> new IllegalArgumentException("Parent comment not found"));
+            if (!parent.getPost().getId().equals(postId)) {
+                throw new IllegalArgumentException("Parent comment does not belong to this post");
+            }
+            comment.setParent(parent);
+        }
+
         commentRepository.save(comment);
     }
 

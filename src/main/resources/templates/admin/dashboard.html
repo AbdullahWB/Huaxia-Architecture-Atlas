@@ -94,6 +94,22 @@
 
       <div class="hx-card">
         <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-muted">Total revenue</span>
+          <span class="small text-decoration-none">Completed</span>
+        </div>
+        <div class="display-6 fw-semibold text-white"
+             th:text="'$' + ${#numbers.formatDecimal(totalRevenue, 1, 2)}">$0.00</div>
+        <p class="text-muted mb-2">Paid orders to date</p>
+        <div class="progress" role="progressbar" aria-label="Revenue">
+          <div
+            class="progress-bar bg-info"
+            th:style="'width:' + ${totalRevenue != null and totalRevenue > 0 ? 70 : 15} + '%'"
+          ></div>
+        </div>
+      </div>
+
+      <div class="hx-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
           <span class="text-muted">Unread messages</span>
           <a th:href="@{/admin/messages}" class="small text-decoration-none">Open inbox</a>
         </div>
@@ -104,6 +120,51 @@
             class="progress-bar bg-secondary"
             th:style="'width:' + ${unreadMessageCount > 0 ? 60 : 20} + '%'"
           ></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3 mt-3">
+      <div class="col-lg-12">
+        <div class="hx-card">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h2 class="h6 mb-0 text-white">Recent user profiles</h2>
+            <span class="small text-muted">Latest 10 users</span>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-dark table-hover mb-0 align-middle">
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Email</th>
+                  <th>Bio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="u : ${recentUsers}">
+                  <td>
+                    <div class="d-flex align-items-center gap-2">
+                      <img
+                        th:if="${u.avatarUrl}"
+                        th:src="@{${u.avatarUrl}}"
+                        class="hx-avatar-sm"
+                        alt="avatar"
+                      />
+                      <div>
+                        <div class="fw-semibold" th:text="${u.username}">User</div>
+                        <div class="small text-muted" th:text="${u.role}">Role</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td th:text="${u.email}">email</td>
+                  <td class="text-muted" th:text="${u.bio} ?: 'No description.'">Bio</td>
+                </tr>
+                <tr th:if="${recentUsers == null || #lists.isEmpty(recentUsers)}">
+                  <td colspan="3" class="text-center text-muted py-3">No users found.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

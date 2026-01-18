@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+  th:replace="layout/base :: page(${product.name}, ~{::section})"
+>
+  <section class="hx-section">
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <div class="hx-card">
+          <img
+            th:src="${product.imageUrl} ?: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80'"
+            alt="Product"
+          />
+          <div class="mt-3">
+            <h1 class="h4 text-white mb-1" th:text="${product.name}">Product</h1>
+            <p class="text-muted" th:text="${product.description} ?: 'No description yet.'">Description</p>
+            <div class="d-flex flex-wrap align-items-center gap-3">
+              <div class="small text-muted" th:text="'Stock: ' + ${product.stock}">Stock</div>
+              <div class="h5 mb-0 text-white" th:text="'$' + ${#numbers.formatDecimal(product.price, 1, 2)}">$0.00</div>
+              <div class="small text-muted" th:text="${averageRating} + '? (' + ${reviewCount} + ' reviews)'">0?</div>
+              <div class="small text-muted" th:text="${likeCount} + ' likes'">0 likes</div>
+            </div>
+          </div>
+
+          <div class="mt-3 d-flex flex-wrap align-items-center gap-2">
+            <button
+              class="btn btn-outline-secondary btn-sm"
+              type="button"
+              data-ai-explain
+              data-ai-type="products"
+              data-ai-label="Product summary"
+              th:attr="data-ai-id=${product.id},data-ai-title=${product.name}"
+            >
+              AI explain
+            </button>
+            <form
+              sec:authorize="isAuthenticated()"
+              th:action="@{/products/{id}/buy(id=${product.id})}"
+              method="post"
+            >
+              <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+              <button class="btn btn-dark btn-sm" th:disabled="${product.stock == 0}">Buy</button>
+            </form>
+            <form
+              sec:authorize="isAuthenticated()"
+              th:action="@{/products/{id}/like(id=${product.id})}"
+              method="post"
+            >
+              <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+              <button
+                class="btn btn-sm"
+                th:classappend="${liked} ? 'btn-dark' : 'btn-outline-secondary'"
+                th:text="${liked} ? 'Liked' : 'Like'"
+              >
+                Like
+              </button>
+            </form>
+            <span class="small text-muted" sec:authorize="!isAuthenticated()">Login to purchase or like</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="hx-card">
+          <h2 class="h6 text-white mb-3">Reviews</h2>
+          <div class="vstack gap-2" th:if="${reviews != null && !#lists.isEmpty(reviews)}">
+            <div class="border rounded-3 p-3" th:each="r : ${reviews}">
+              <div class="d-flex align-items-center gap-2">
+                <img
+                  th:if="${r.user.avatarUrl}"
+                  th:src="@{${r.user.avatarUrl}}"
+                  class="hx-avatar-sm"
+                  alt="avatar"
+                />
+                <div class="small text-muted" th:text="${r.user.username}">User</div>
+                <span class="small text-muted" th:text="${r.rating} + '?'">5?</span>
+              </div>
+              <div class="mt-2" th:text="${r.content}">Review</div>
+              <div class="small text-muted mt-2" th:if="${r.createdAt != null}" th:text="${#temporals.format(r.createdAt, 'yyyy-MM-dd')}">Date</div>
+            </div>
+          </div>
+          <div class="text-muted" th:if="${reviews == null || #lists.isEmpty(reviews)}">No reviews yet.</div>
+
+          <div class="mt-3" sec:authorize="isAuthenticated()">
+            <form th:action="@{/products/{id}/review(id=${product.id})}" method="post" th:object="${reviewForm}">
+              <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+              <label class="form-label">Rating (1-5)</label>
+              <select class="form-select" th:field="*{rating}">
+                <option value="" disabled selected>Select rating</option>
+                <option th:value="1">1</option>
+                <option th:value="2">2</option>
+                <option th:value="3">3</option>
+                <option th:value="4">4</option>
+                <option th:value="5">5</option>
+              </select>
+              <div class="text-danger small" th:errors="*{rating}"></div>
+              <label class="form-label mt-2">Your review</label>
+              <textarea class="form-control" rows="3" th:field="*{content}"></textarea>
+              <div class="text-danger small" th:errors="*{content}"></div>
+              <button class="btn btn-dark btn-sm mt-2">Submit review</button>
+            </form>
+          </div>
+          <div class="text-muted small mt-2" sec:authorize="!isAuthenticated()">Login to write a review.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</html>

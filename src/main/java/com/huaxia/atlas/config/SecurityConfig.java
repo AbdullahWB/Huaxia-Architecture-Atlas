@@ -32,7 +32,7 @@ public class SecurityConfig {
                 // Authenticated user actions
                 .requestMatchers("/posts/new", "/posts/*/comment", "/posts/*/like").authenticated()
                 .requestMatchers("/buildings/*/comment", "/buildings/*/like").authenticated()
-                .requestMatchers("/orders/**", "/products/*/buy").authenticated()
+                .requestMatchers("/orders/**", "/products/*/buy", "/products/*/review", "/products/*/like").authenticated()
 
                 // Admin area
                 .requestMatchers("/admin/**").hasRole("ADMIN")

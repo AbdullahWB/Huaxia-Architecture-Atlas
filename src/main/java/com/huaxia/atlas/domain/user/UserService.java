@@ -9,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -95,6 +98,32 @@ public class UserService {
         return repo.countByRole(UserRole.ADMIN);
     }
 
+    public List<UserAccount> recentUsers() {
+        return repo.findTop10ByOrderByCreatedAtDesc();
+    }
+
+    public Map<String, UserAccount> mapByEmails(List<String> emails) {
+        if (emails == null || emails.isEmpty()) {
+            return Map.of();
+        }
+        Map<String, UserAccount> map = new HashMap<>();
+        for (UserAccount user : repo.findByEmailIgnoreCaseIn(emails)) {
+            map.put(user.getEmail().toLowerCase(), user);
+        }
+        return map;
+    }
+
+    @Transactional
+    public UserAccount updateProfile(Long userId, String bio, String avatarUrl) {
+        UserAccount user = repo.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+        user.setBio(blankToNull(bio));
+        if (avatarUrl != null && !avatarUrl.isBlank()) {
+            user.setAvatarUrl(avatarUrl.trim());
+        }
+        return repo.save(user);
+    }
+
     @Transactional
     public UserAccount register(UserRegisterForm form) {
         String username = form.getUsername().trim();
@@ -149,5 +178,13 @@ public class UserService {
         user.setResetTokenExpiresAt(null);
         repo.save(user);
         return true;
+    }
+
+    private String blankToNull(String value) {
+        if (value == null) {
+            return null;
+        }
+        String trimmed = value.trim();
+        return trimmed.isEmpty() ? null : trimmed;
     }
 }

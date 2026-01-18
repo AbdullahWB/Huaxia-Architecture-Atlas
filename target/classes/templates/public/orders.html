@@ -24,6 +24,7 @@
               <th style="width: 140px">Total</th>
               <th style="width: 140px">Status</th>
               <th style="width: 140px">Date</th>
+              <th style="width: 160px">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -34,6 +35,21 @@
               <td th:text="'$' + ${#numbers.formatDecimal(o.totalPrice, 1, 2)}">$0.00</td>
               <td><span class="badge text-bg-light border" th:text="${o.status}">PENDING</span></td>
               <td th:text="${#temporals.format(o.createdAt, 'yyyy-MM-dd')}">2026-01-18</td>
+              <td>
+                <form
+                  th:if="${o.status.name() == 'PENDING'}"
+                  th:action="@{/orders/{id}/pay(id=${o.id})}"
+                  method="post"
+                >
+                  <input
+                    type="hidden"
+                    th:name="${_csrf.parameterName}"
+                    th:value="${_csrf.token}"
+                  />
+                  <button class="btn btn-sm btn-outline-secondary">Pay now</button>
+                </form>
+                <span class="small text-muted" th:if="${o.status.name() != 'PENDING'}">Paid</span>
+              </td>
             </tr>
             <tr th:if="${items == null || #lists.isEmpty(items)}">
               <td colspan="6" class="text-center text-muted py-4">No orders yet.</td>

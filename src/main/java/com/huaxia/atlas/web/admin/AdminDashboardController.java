@@ -53,6 +53,8 @@ public class AdminDashboardController {
         model.addAttribute("userCount", userService.countAll());
         model.addAttribute("productCount", productRepository.count());
         model.addAttribute("pendingOrderCount", orderService.countPending());
+        model.addAttribute("totalRevenue", orderService.totalRevenue());
+        model.addAttribute("recentUsers", userService.recentUsers());
         return "admin/dashboard";
     }
 }

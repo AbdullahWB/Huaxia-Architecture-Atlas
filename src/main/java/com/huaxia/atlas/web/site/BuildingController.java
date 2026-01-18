@@ -2,6 +2,7 @@ package com.huaxia.atlas.web.site;
 
 import com.huaxia.atlas.ai.recommend.RelatedItemsService;
 import com.huaxia.atlas.domain.building.Building;
+import com.huaxia.atlas.domain.building.BuildingComment;
 import com.huaxia.atlas.domain.building.BuildingInteractionService;
 import com.huaxia.atlas.domain.building.BuildingService;
 import com.huaxia.atlas.domain.comment.dto.CommentForm;
@@ -14,6 +15,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -42,9 +48,23 @@ public class BuildingController {
 
         var related = relatedItemsService.relatedTo(building, 6);
 
+        List<BuildingComment> allComments = buildingInteractionService.listComments(id);
+        List<BuildingComment> rootComments = new ArrayList<>();
+        LinkedHashMap<Long, List<BuildingComment>> commentReplies = new LinkedHashMap<>();
+        for (BuildingComment comment : allComments) {
+            if (comment.getParent() == null) {
+                rootComments.add(comment);
+            } else if (comment.getParent() != null) {
+                commentReplies
+                        .computeIfAbsent(comment.getParent().getId(), k -> new ArrayList<>())
+                        .add(comment);
+            }
+        }
+
         model.addAttribute("building", building);
         model.addAttribute("related", related);
-        model.addAttribute("comments", buildingInteractionService.listComments(id));
+        model.addAttribute("comments", rootComments);
+        model.addAttribute("commentReplies", commentReplies);
         model.addAttribute("likeCount", buildingInteractionService.countLikes(id));
         model.addAttribute("commentForm", new CommentForm());
 
@@ -64,6 +84,7 @@ public class BuildingController {
             @PathVariable("id") Long id,
             @Valid @ModelAttribute("commentForm") CommentForm form,
             BindingResult bindingResult,
+            @RequestParam(name = "parentId", required = false) Long parentId,
             Authentication authentication,
             RedirectAttributes ra) {
         if (bindingResult.hasErrors()) {
@@ -78,7 +99,7 @@ public class BuildingController {
         var user = userService.findByLogin(authentication.getName())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED));
 
-        buildingInteractionService.addComment(id, user.getId(), form.getContent());
+        buildingInteractionService.addComment(id, user.getId(), form.getContent(), parentId);
         ra.addFlashAttribute("success", "Comment added.");
         return "redirect:/buildings/" + id;
     }

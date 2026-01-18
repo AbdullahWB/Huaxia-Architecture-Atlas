@@ -3,6 +3,9 @@ C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\
 C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\ai\chat\ChatService.java
 C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\ai\chat\DeepSeekClient.java
 C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\ai\chat\GeminiClient.java
+C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\ai\explain\AiExplainController.java
+C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\ai\explain\AiExplainResponse.java
+C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\ai\explain\AiExplainService.java
 C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\ai\recommend\RelatedItemsService.java
 C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\ai\search\SearchController.java
 C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\ai\search\SearchResult.java

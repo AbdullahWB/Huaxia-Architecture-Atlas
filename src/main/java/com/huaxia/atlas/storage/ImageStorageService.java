@@ -24,8 +24,17 @@ public class ImageStorageService {
      * /uploads/<file>).
      */
     public String saveCoverImage(MultipartFile file) throws IOException {
-        if (file == null || file.isEmpty())
+        return saveImage(file);
+    }
+
+    public String saveAvatarImage(MultipartFile file) throws IOException {
+        return saveImage(file);
+    }
+
+    private String saveImage(MultipartFile file) throws IOException {
+        if (file == null || file.isEmpty()) {
             return null;
+        }
 
         String original = file.getOriginalFilename();
         String cleanName = StringUtils.cleanPath(original == null ? "" : original);

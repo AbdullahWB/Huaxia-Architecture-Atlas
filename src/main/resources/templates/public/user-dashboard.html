@@ -1,15 +1,27 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html
   lang="en"
   xmlns:th="http://www.thymeleaf.org"
   th:replace="layout/base :: page('Dashboard', ~{::section})"
 >
   <section class="hx-section">
-    <div class="d-flex align-items-center justify-content-between mb-3">
-      <div>
-        <div class="hx-breadcrumb mb-2">Account <span>Dashboard</span></div>
-        <h1 class="h4 mb-1" th:text="'Welcome, ' + ${user.username}">Welcome</h1>
-        <p class="text-muted mb-0">Track your posts, likes, and purchases.</p>
+    <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-3">
+      <div class="d-flex align-items-center gap-3">
+        <div class="hx-avatar-lg">
+          <img
+            th:if="${user.avatarUrl}"
+            th:src="@{${user.avatarUrl}}"
+            alt="avatar"
+          />
+          <span th:if="${user.avatarUrl == null}" th:text="${#strings.substring(user.username,0,1)}">U</span>
+        </div>
+        <div>
+          <div class="hx-breadcrumb mb-2">Account <span>Dashboard</span></div>
+          <h1 class="h4 mb-1" th:text="'Welcome, ' + ${user.username}">Welcome</h1>
+          <p class="text-muted mb-0" th:text="${user.bio} ?: 'Add a short description to your profile.'">
+            Add a short description to your profile.
+          </p>
+        </div>
       </div>
       <a class="btn btn-outline-secondary btn-sm" th:href="@{/}">Back to site</a>
     </div>
@@ -59,22 +71,88 @@
     <div class="row g-3">
       <div class="col-lg-6">
         <div class="hx-card h-100">
+          <h2 class="h6 text-white mb-2">Profile settings</h2>
+          <form
+            class="vstack gap-2"
+            th:action="@{/dashboard/profile}"
+            method="post"
+            enctype="multipart/form-data"
+            th:object="${profileForm}"
+          >
+            <input
+              type="hidden"
+              th:name="${_csrf.parameterName}"
+              th:value="${_csrf.token}"
+            />
+            <label class="form-label">Profile photo</label>
+            <input class="form-control" type="file" name="avatarFile" accept="image/*" />
+            <label class="form-label">Description</label>
+            <textarea class="form-control" rows="3" th:field="*{bio}"></textarea>
+            <div class="text-danger small" th:errors="*{bio}"></div>
+            <button class="btn btn-dark btn-sm align-self-start">Save profile</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="hx-card h-100">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h2 class="h6 text-white mb-0">Notifications</h2>
+            <span class="small text-muted" th:text="${unreadNotificationCount} + ' unread'">0 unread</span>
+          </div>
+          <div class="vstack gap-2" th:if="${notifications != null && !#lists.isEmpty(notifications)}">
+            <div class="border rounded-3 p-3" th:each="n : ${notifications}">
+              <div class="fw-semibold" th:text="${n.title}">Title</div>
+              <div class="small text-muted mt-1" th:text="${n.body}">Body</div>
+              <div class="small text-muted mt-2" th:if="${n.createdAt != null}" th:text="${#temporals.format(n.createdAt, 'yyyy-MM-dd HH:mm')}">Date</div>
+            </div>
+          </div>
+          <div class="text-muted" th:if="${notifications == null || #lists.isEmpty(notifications)}">
+            No notifications yet.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3 mt-3">
+      <div class="col-lg-8">
+        <div class="hx-card h-100">
+          <h2 class="h6 text-white mb-2">Admin replies</h2>
+          <div class="vstack gap-2" th:if="${adminMessages != null && !#lists.isEmpty(adminMessages)}">
+            <div class="border rounded-3 p-3" th:each="m : ${adminMessages}">
+              <div class="small text-muted" th:text="${m.subject} ?: 'No subject'">Subject</div>
+              <div class="mt-1" th:text="${m.message}">Message</div>
+              <div class="mt-2" th:if="${m.adminReply}">
+                <div class="small text-muted">Admin reply</div>
+                <div class="white-space-prewrap" th:text="${m.adminReply}">Reply</div>
+              </div>
+              <div class="mt-2" th:if="${m.aiReply}">
+                <div class="small text-muted">AI draft</div>
+                <div class="white-space-prewrap" th:text="${m.aiReply}">AI reply</div>
+              </div>
+            </div>
+          </div>
+          <div class="text-muted" th:if="${adminMessages == null || #lists.isEmpty(adminMessages)}">
+            No admin replies yet.
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="hx-card h-100">
           <h2 class="h6 text-white mb-2">Quick actions</h2>
           <div class="d-flex flex-column gap-2">
             <a class="btn btn-dark btn-sm" th:href="@{/posts/new}">Write a post</a>
             <a class="btn btn-outline-secondary btn-sm" th:href="@{/products}">Browse products</a>
             <a class="btn btn-outline-secondary btn-sm" th:href="@{/orders}">View orders</a>
           </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="hx-card h-100">
-          <h2 class="h6 text-white mb-2">Tips</h2>
-          <ul class="small text-muted mb-0">
-            <li>Share sources for posts to speed up moderation.</li>
-            <li>Like buildings to keep your favorites easy to find.</li>
-            <li>Store items can be purchased anytime after login.</li>
-          </ul>
+          <div class="hx-section-divider"></div>
+          <div>
+            <div class="small text-muted">Tips</div>
+            <ul class="small text-muted mb-0 mt-2">
+              <li>Share sources for posts to speed up moderation.</li>
+              <li>Like buildings to keep your favorites easy to find.</li>
+              <li>Store items can be purchased anytime after login.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

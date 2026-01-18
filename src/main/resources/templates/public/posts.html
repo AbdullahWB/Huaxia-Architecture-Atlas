@@ -16,9 +16,18 @@
     </div>
 
     <div class="vstack gap-2 mt-3">
-      <div class="bg-white border rounded-4 p-3 hover-card" th:each="p : ${items}">
-        <div class="small text-muted" th:text="${p.authorName} ?: 'Anonymous'">
-          Author
+      <div class="bg-white border rounded-4 p-3 hover-card" th:each="p : ${items}"
+           th:with="author=${authorMap[#strings.toLowerCase(p.authorEmail)]}">
+        <div class="d-flex align-items-center gap-2">
+          <img
+            th:if="${author != null and author.avatarUrl != null}"
+            th:src="@{${author.avatarUrl}}"
+            class="hx-avatar-sm"
+            alt="avatar"
+          />
+          <div class="small text-muted" th:text="${p.authorName} ?: 'Anonymous'">
+            Author
+          </div>
         </div>
         <div class="fw-semibold" th:text="${p.title}">Title</div>
         <div class="small text-muted" th:text="${#strings.abbreviate(p.content, 160)}">

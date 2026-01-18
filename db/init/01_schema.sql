@@ -80,6 +80,8 @@ CREATE TABLE IF NOT EXISTS app_users (
     username VARCHAR(50) NOT NULL,
     email VARCHAR(200) NOT NULL,
     password_hash VARCHAR(200) NOT NULL,
+    avatar_url VARCHAR(300) NULL,
+    bio TEXT NULL,
     role ENUM('USER', 'ADMIN') NOT NULL DEFAULT 'USER',
     enabled TINYINT(1) NOT NULL DEFAULT 1,
     reset_token VARCHAR(120) NULL,
@@ -96,12 +98,15 @@ CREATE TABLE IF NOT EXISTS post_comments (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     post_id BIGINT NOT NULL,
     user_id BIGINT NOT NULL,
+    parent_id BIGINT NULL,
     content TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_post_comments_post FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE,
-    CONSTRAINT fk_post_comments_user FOREIGN KEY (user_id) REFERENCES app_users(id) ON DELETE CASCADE
+    CONSTRAINT fk_post_comments_user FOREIGN KEY (user_id) REFERENCES app_users(id) ON DELETE CASCADE,
+    CONSTRAINT fk_post_comments_parent FOREIGN KEY (parent_id) REFERENCES post_comments(id) ON DELETE CASCADE
 ) ENGINE = InnoDB;
 CREATE INDEX idx_post_comments_post ON post_comments(post_id);
+CREATE INDEX idx_post_comments_parent ON post_comments(parent_id);
 
 CREATE TABLE IF NOT EXISTS post_likes (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -121,12 +126,15 @@ CREATE TABLE IF NOT EXISTS building_comments (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     building_id BIGINT NOT NULL,
     user_id BIGINT NOT NULL,
+    parent_id BIGINT NULL,
     content TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_building_comments_building FOREIGN KEY (building_id) REFERENCES buildings(id) ON DELETE CASCADE,
-    CONSTRAINT fk_building_comments_user FOREIGN KEY (user_id) REFERENCES app_users(id) ON DELETE CASCADE
+    CONSTRAINT fk_building_comments_user FOREIGN KEY (user_id) REFERENCES app_users(id) ON DELETE CASCADE,
+    CONSTRAINT fk_building_comments_parent FOREIGN KEY (parent_id) REFERENCES building_comments(id) ON DELETE CASCADE
 ) ENGINE = InnoDB;
 CREATE INDEX idx_building_comments_building ON building_comments(building_id);
+CREATE INDEX idx_building_comments_parent ON building_comments(parent_id);
 
 CREATE TABLE IF NOT EXISTS building_likes (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -169,3 +177,46 @@ CREATE TABLE IF NOT EXISTS orders (
 ) ENGINE = InnoDB;
 CREATE INDEX idx_orders_created ON orders(created_at);
 CREATE INDEX idx_orders_status ON orders(status);
+
+
+-- =========================
+-- 10) Product reviews + likes
+-- =========================
+CREATE TABLE IF NOT EXISTS product_reviews (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    product_id BIGINT NOT NULL,
+    user_id BIGINT NOT NULL,
+    rating INT NOT NULL,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_product_reviews_product FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
+    CONSTRAINT fk_product_reviews_user FOREIGN KEY (user_id) REFERENCES app_users(id) ON DELETE CASCADE
+) ENGINE = InnoDB;
+CREATE INDEX idx_product_reviews_product ON product_reviews(product_id);
+CREATE INDEX idx_product_reviews_user ON product_reviews(user_id);
+
+CREATE TABLE IF NOT EXISTS product_likes (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    product_id BIGINT NOT NULL,
+    user_id BIGINT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY uk_product_like (product_id, user_id),
+    CONSTRAINT fk_product_likes_product FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE,
+    CONSTRAINT fk_product_likes_user FOREIGN KEY (user_id) REFERENCES app_users(id) ON DELETE CASCADE
+) ENGINE = InnoDB;
+CREATE INDEX idx_product_likes_product ON product_likes(product_id);
+
+-- =========================
+-- 11) User notifications
+-- =========================
+CREATE TABLE IF NOT EXISTS user_notifications (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    user_id BIGINT NOT NULL,
+    title VARCHAR(200) NOT NULL,
+    body TEXT NOT NULL,
+    is_read TINYINT(1) NOT NULL DEFAULT 0,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_user_notifications_user FOREIGN KEY (user_id) REFERENCES app_users(id) ON DELETE CASCADE
+) ENGINE = InnoDB;
+CREATE INDEX idx_user_notifications_user ON user_notifications(user_id);
+CREATE INDEX idx_user_notifications_created ON user_notifications(created_at);
