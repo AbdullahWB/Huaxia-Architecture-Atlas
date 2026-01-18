@@ -38,4 +38,13 @@
   // Focus the first input on login page (nice UX)
   const first = document.querySelector("form input");
   if (first) first.focus();
+
+  // Chat: scroll to the latest message
+  const chatLog = document.querySelector("[data-chat-scroll]");
+  if (chatLog) {
+    setTimeout(() => {
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }, 0);
+  }
+
 })();

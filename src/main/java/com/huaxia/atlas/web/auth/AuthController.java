@@ -7,6 +7,7 @@ import com.huaxia.atlas.domain.user.dto.UserRegisterForm;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,8 +30,8 @@ public class AuthController {
     }
 
     @GetMapping("/register")
-    public String registerForm(Model model) {
-        model.addAttribute("form", new UserRegisterForm());
+    public String registerForm(@ModelAttribute("form") UserRegisterForm form, Model model) {
+        model.addAttribute(BindingResult.MODEL_KEY_PREFIX + "form", new BeanPropertyBindingResult(form, "form"));
         return "public/register";
     }
 
@@ -55,8 +56,8 @@ public class AuthController {
     }
 
     @GetMapping("/forgot")
-    public String forgotForm(Model model) {
-        model.addAttribute("form", new ForgotPasswordForm());
+    public String forgotForm(@ModelAttribute("form") ForgotPasswordForm form, Model model) {
+        model.addAttribute(BindingResult.MODEL_KEY_PREFIX + "form", new BeanPropertyBindingResult(form, "form"));
         return "public/forgot-password";
     }
 
@@ -76,8 +77,11 @@ public class AuthController {
     }
 
     @GetMapping("/reset")
-    public String resetForm(@RequestParam(name = "token", required = false) String token, Model model) {
-        model.addAttribute("form", new ResetPasswordForm());
+    public String resetForm(
+            @RequestParam(name = "token", required = false) String token,
+            @ModelAttribute("form") ResetPasswordForm form,
+            Model model) {
+        model.addAttribute(BindingResult.MODEL_KEY_PREFIX + "form", new BeanPropertyBindingResult(form, "form"));
         model.addAttribute("token", token);
         if (token == null || token.isBlank() || !userService.isResetTokenValid(token)) {
             model.addAttribute("tokenInvalid", true);

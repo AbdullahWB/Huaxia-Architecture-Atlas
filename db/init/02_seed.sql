@@ -140,11 +140,29 @@ INSERT INTO chat_logs (user_question, model_answer)
 VALUES (
         'Explain what a siheyuan is.',
         'A siheyuan is a traditional courtyard residence organized around an inner courtyard, reflecting hierarchy and privacy.'
-    );-- =========================
+    );
+-- =========================
 -- Seed Products
 -- =========================
 INSERT INTO products (name, description, price, image_url, stock)
-VALUES
-    ('Atlas Field Guide', 'Compact guide to courtyard and palace layouts.', 29.00, NULL, 12),
-    ('Courtyard Sketch Set', 'Study sketches and site notes for historic compounds.', 18.50, NULL, 8),
-    ('Architectural Map Print', 'Large format print of key pre-1911 sites.', 42.00, NULL, 5);
+VALUES (
+        'Atlas Field Guide',
+        'Compact guide to courtyard and palace layouts.',
+        29.00,
+        NULL,
+        12
+    ),
+    (
+        'Courtyard Sketch Set',
+        'Study sketches and site notes for historic compounds.',
+        18.50,
+        NULL,
+        8
+    ),
+    (
+        'Architectural Map Print',
+        'Large format print of key pre-1911 sites.',
+        42.00,
+        NULL,
+        5
+    );

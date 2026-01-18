@@ -4,60 +4,134 @@
   xmlns:th="http://www.thymeleaf.org"
   th:replace="layout/base :: page('AI Chat', ~{::section})"
 >
-  <section>
-    <div class="row g-3">
-      <div class="col-lg-7">
-        <div class="bg-white border rounded-4 p-4">
-          <h1 class="h5 mb-3">Ask the Atlas (DeepSeek)</h1>
-
-          <form th:action="@{/chat}" method="post" class="vstack gap-2">
+  <section class="hx-section hx-chat">
+    <div class="hx-chat-grid">
+      <aside class="hx-card hx-chat-sidebar">
+        <div class="d-flex align-items-center justify-content-between">
+          <h2 class="h6 mb-0 text-white">Conversations</h2>
+          <form th:action="@{/chat/clear}" method="post">
             <input
               type="hidden"
               th:name="${_csrf.parameterName}"
               th:value="${_csrf.token}"
             />
-            <textarea
-              class="form-control"
-              name="question"
-              rows="4"
-              placeholder="Ask about dynasties, types, structures..."
-              th:text="${question}"
-            ></textarea>
-            <button class="btn btn-dark align-self-start">Ask</button>
-          </form>
-
-          <div class="mt-4" th:if="${answer != null and !answer.isBlank()}">
-            <div class="small text-muted mb-2">Answer</div>
-            <div
-              class="border rounded-3 p-3 bg-light"
-              th:text="${answer}"
-            ></div>
-
-            <details
-              class="mt-3"
-              th:if="${promptUsed != null and !promptUsed.isBlank()}"
+            <button
+              class="btn btn-outline-secondary btn-sm"
+              th:disabled="${history == null || #lists.isEmpty(history)}"
             >
-              <summary class="small text-muted">
-                Show context/prompt (for demo)
-              </summary>
-              <pre
-                class="small mt-2 p-2 border rounded bg-white"
-                th:text="${promptUsed}"
-              ></pre>
-            </details>
+              Clear
+            </button>
+          </form>
+        </div>
+
+        <div class="hx-chat-history">
+          <a
+            class="hx-chat-history-item"
+            th:each="entry, stat : ${history}"
+            th:href="'#chat-' + ${stat.index}"
+          >
+            <div class="fw-semibold" th:text="${#strings.abbreviate(entry.question, 52)}">
+              Previous question
+            </div>
+            <div
+              class="small text-muted"
+              th:if="${entry.createdAt != null}"
+              th:text="${#temporals.format(entry.createdAt, 'MMM dd, HH:mm')}"
+            >
+              time
+            </div>
+          </a>
+
+          <div
+            class="text-muted small"
+            th:if="${history == null || #lists.isEmpty(history)}"
+          >
+            No chats yet. Ask a question to start a thread.
           </div>
         </div>
-      </div>
 
-      <div class="col-lg-5">
-        <div class="bg-white border rounded-4 p-4">
-          <h2 class="h6 mb-2">Tips</h2>
+        <div class="hx-chat-tips">
+          <h3 class="h6 text-white mb-2">Tips</h3>
           <ul class="small text-muted mb-0">
-            <li>Ask “Which buildings are Ming palace style?”</li>
-            <li>Ask “Explain siheyuan in simple words.”</li>
-            <li>Ask “Show bridge examples and their key features.”</li>
+            <li>Ask "Which buildings are Ming palace style?"</li>
+            <li>Ask "Explain siheyuan in simple words."</li>
+            <li>Ask "Show bridge examples and their key features."</li>
           </ul>
         </div>
+      </aside>
+
+      <div class="hx-card hx-chat-main">
+        <div class="d-flex align-items-start justify-content-between flex-wrap gap-2">
+          <div>
+            <h1 class="h5 mb-1">Ask the Atlas</h1>
+            <div class="small text-muted">DeepSeek curated architecture knowledge</div>
+          </div>
+          <span class="badge text-bg-light">Online</span>
+        </div>
+
+        <div class="hx-chat-log" data-chat-scroll>
+          <div
+            class="hx-chat-empty"
+            th:if="${history == null || #lists.isEmpty(history)}"
+          >
+            <div class="hx-chat-empty-title">Start a conversation</div>
+            <div class="text-muted small">
+              Ask about dynasties, building types, or specific sites. Your recent chat will
+              appear here.
+            </div>
+          </div>
+
+          <div
+            class="hx-chat-thread"
+            th:each="entry, stat : ${history}"
+            th:id="'chat-' + ${stat.index}"
+          >
+            <div class="hx-chat-message hx-chat-user">
+              <div class="hx-chat-bubble">
+                <div class="small text-muted mb-1">You</div>
+                <div class="white-space-prewrap" th:text="${entry.question}">Question</div>
+              </div>
+            </div>
+
+            <div class="hx-chat-message hx-chat-assistant">
+              <div class="hx-chat-avatar">Atlas</div>
+              <div class="hx-chat-bubble">
+                <div class="small text-muted mb-1">Atlas</div>
+                <div class="white-space-prewrap" th:text="${entry.answer}">Answer</div>
+
+                <details
+                  class="mt-2"
+                  th:if="${entry.promptUsed != null and !entry.promptUsed.isBlank()}"
+                >
+                  <summary class="small text-muted">Context used</summary>
+                  <pre
+                    class="small mt-2 p-2 border rounded bg-white"
+                    th:text="${entry.promptUsed}"
+                  ></pre>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form th:action="@{/chat}" method="post" class="hx-chat-input" data-chat-form>
+          <input
+            type="hidden"
+            th:name="${_csrf.parameterName}"
+            th:value="${_csrf.token}"
+          />
+          <textarea
+            class="form-control"
+            name="question"
+            rows="3"
+            placeholder="Ask about dynasties, types, structures..."
+            th:text="${question}"
+          ></textarea>
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+            <div class="small text-muted">Tip: press Shift+Enter for a new line.</div>
+            <button class="btn btn-dark">Send</button>
+          </div>
+        </form>
       </div>
     </div>
   </section>
