@@ -42,6 +42,7 @@ C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\
 C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\domain\product\Product.java
 C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\domain\product\ProductRepository.java
 C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\domain\product\ProductService.java
+C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\domain\seed\SampleDataSeeder.java
 C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\domain\user\dto\ForgotPasswordForm.java
 C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\domain\user\dto\ResetPasswordForm.java
 C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\domain\user\dto\UserRegisterForm.java
@@ -66,3 +67,4 @@ C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\
 C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\web\site\OrderController.java
 C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\web\site\PostController.java
 C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\web\site\ProductController.java
+C:\Users\abdul\Desktop\project_file\Huaxia-Architecture-Atlas\src\main\java\com\huaxia\atlas\web\site\UserDashboardController.java

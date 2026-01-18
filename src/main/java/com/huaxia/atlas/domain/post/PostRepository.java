@@ -13,4 +13,6 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     Optional<Post> findByIdAndStatus(Long id, PostStatus status);
 
     long countByStatus(PostStatus status);
+
+    long countByAuthorEmailIgnoreCase(String authorEmail);
 }

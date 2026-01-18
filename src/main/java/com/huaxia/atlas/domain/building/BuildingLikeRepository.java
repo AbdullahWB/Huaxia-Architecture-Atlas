@@ -9,4 +9,6 @@ public interface BuildingLikeRepository extends JpaRepository<BuildingLike, Long
     Optional<BuildingLike> findByBuildingIdAndUserId(Long buildingId, Long userId);
 
     long countByBuildingId(Long buildingId);
+
+    long countByUserId(Long userId);
 }

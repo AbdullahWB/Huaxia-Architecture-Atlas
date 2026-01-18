@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="layout/base :: page('Dashboard', ~{::section})"
+>
+  <section class="hx-section">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+      <div>
+        <div class="hx-breadcrumb mb-2">Account <span>Dashboard</span></div>
+        <h1 class="h4 mb-1" th:text="'Welcome, ' + ${user.username}">Welcome</h1>
+        <p class="text-muted mb-0">Track your posts, likes, and purchases.</p>
+      </div>
+      <a class="btn btn-outline-secondary btn-sm" th:href="@{/}">Back to site</a>
+    </div>
+
+    <div class="hx-quick-stats mb-3">
+      <div class="hx-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-muted">Posts submitted</span>
+          <a th:href="@{/posts/new}" class="small text-decoration-none">New post</a>
+        </div>
+        <div class="display-6 fw-semibold text-white" th:text="${postCount}">0</div>
+        <p class="text-muted mb-2">Pending approval and published posts.</p>
+        <div class="hx-spark"></div>
+      </div>
+
+      <div class="hx-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-muted">Orders</span>
+          <a th:href="@{/orders}" class="small text-decoration-none">View</a>
+        </div>
+        <div class="display-6 fw-semibold text-white" th:text="${orderCount}">0</div>
+        <p class="text-muted mb-2">Purchases from the store.</p>
+        <div class="hx-spark"></div>
+      </div>
+
+      <div class="hx-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-muted">Post likes</span>
+          <span class="small text-decoration-none">Community</span>
+        </div>
+        <div class="display-6 fw-semibold text-white" th:text="${postLikeCount}">0</div>
+        <p class="text-muted mb-2">Posts you have liked.</p>
+        <div class="hx-spark"></div>
+      </div>
+
+      <div class="hx-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-muted">Building likes</span>
+          <span class="small text-decoration-none">Explore</span>
+        </div>
+        <div class="display-6 fw-semibold text-white" th:text="${buildingLikeCount}">0</div>
+        <p class="text-muted mb-2">Buildings you have liked.</p>
+        <div class="hx-spark"></div>
+      </div>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-lg-6">
+        <div class="hx-card h-100">
+          <h2 class="h6 text-white mb-2">Quick actions</h2>
+          <div class="d-flex flex-column gap-2">
+            <a class="btn btn-dark btn-sm" th:href="@{/posts/new}">Write a post</a>
+            <a class="btn btn-outline-secondary btn-sm" th:href="@{/products}">Browse products</a>
+            <a class="btn btn-outline-secondary btn-sm" th:href="@{/orders}">View orders</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="hx-card h-100">
+          <h2 class="h6 text-white mb-2">Tips</h2>
+          <ul class="small text-muted mb-0">
+            <li>Share sources for posts to speed up moderation.</li>
+            <li>Like buildings to keep your favorites easy to find.</li>
+            <li>Store items can be purchased anytime after login.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</html>

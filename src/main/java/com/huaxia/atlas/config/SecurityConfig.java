@@ -11,6 +11,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.OrRequestMatcher;
 
 import java.io.IOException;
 
@@ -23,6 +25,9 @@ public class SecurityConfig {
 
         http.authorizeHttpRequests(auth -> auth
                 .requestMatchers("/login", "/register", "/forgot", "/reset", "/admin/login").permitAll()
+
+                // User dashboard
+                .requestMatchers("/dashboard/**").hasAnyRole("USER", "ADMIN")
 
                 // Authenticated user actions
                 .requestMatchers("/posts/new", "/posts/*/comment", "/posts/*/like").authenticated()
@@ -52,8 +57,12 @@ public class SecurityConfig {
                 .permitAll());
 
         http.logout(logout -> logout
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/"));
+                .logoutRequestMatcher(new OrRequestMatcher(
+                        new AntPathRequestMatcher("/logout", "GET"),
+                        new AntPathRequestMatcher("/logout", "POST")
+                ))
+                .logoutSuccessUrl("/login?logout")
+                .permitAll());
 
         return http.build();
     }
@@ -70,7 +79,7 @@ public class SecurityConfig {
                 if (isAdmin) {
                     response.sendRedirect("/admin/dashboard");
                 } else {
-                    response.sendRedirect("/");
+                    response.sendRedirect("/dashboard");
                 }
             }
         };

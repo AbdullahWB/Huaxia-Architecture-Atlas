@@ -54,8 +54,11 @@
             <li class="nav-item">
               <a class="nav-link" th:href="@{/contact}">Contact</a>
             </li>
+            <li class="nav-item" sec:authorize="hasRole('USER')">
+              <a class="nav-link" th:href="@{/dashboard}">Dashboard</a>
+            </li>
             <li class="nav-item" sec:authorize="hasRole('ADMIN')">
-              <a class="nav-link" th:href="@{/admin/dashboard}">Dashboard</a>
+              <a class="nav-link" th:href="@{/admin/dashboard}">Admin Dashboard</a>
             </li>
           </ul>
 
@@ -117,8 +120,9 @@
               <a th:href="@{/posts}">Community posts</a>
               <a th:href="@{/products}">Products</a>
               <a th:href="@{/contact}">Contact</a>
+              <a th:href="@{/dashboard}" sec:authorize="hasRole('USER')">Dashboard</a>
+              <a th:href="@{/admin/dashboard}" sec:authorize="hasRole('ADMIN')">Admin dashboard</a>
               <a th:href="@{/login}" sec:authorize="!isAuthenticated()">Login</a>
-              <a th:href="@{/admin/dashboard}" sec:authorize="hasRole('ADMIN')">Dashboard</a>
             </div>
           </div>
           <div class="col-md-4">
