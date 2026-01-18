@@ -60,6 +60,10 @@ public class PostService {
         return repo.countByStatus(PostStatus.PENDING);
     }
 
+    public long countApproved() {
+        return repo.countByStatus(PostStatus.APPROVED);
+    }
+
     @Transactional
     public Optional<Post> moderate(Long postId, PostModerationForm form) {
         return repo.findById(postId).map(p -> {

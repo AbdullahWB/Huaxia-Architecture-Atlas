@@ -1,4 +1,4 @@
-server:
+﻿server:
   port: 8080
 
 spring:
@@ -13,7 +13,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: validate # DB schema is created by Docker init SQL
+      ddl-auto: update
     open-in-view: true
 
   thymeleaf:
@@ -26,6 +26,9 @@ spring:
 
 app:
   upload-dir: ${APP_UPLOAD_DIR:uploads}
+  admin:
+    username: ${APP_ADMIN_USERNAME:admin}
+    password: ${APP_ADMIN_PASSWORD:admin123}
 
   # DeepSeek (Chatbot)
   deepseek:

@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="layout/base :: page('Manage Product', ~{::section})"
+>
+  <section class="hx-section">
+    <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="hx-breadcrumb mb-2">
+          Admin
+          <span th:text="${mode == 'edit'} ? 'Edit product' : 'New product'">New product</span>
+        </div>
+        <h1 class="h4 mb-0" th:text="${mode == 'edit'} ? 'Edit product' : 'Create product'">
+          Create product
+        </h1>
+      </div>
+      <a class="btn btn-outline-secondary btn-sm" th:href="@{/admin/products}">Back</a>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-lg-8">
+        <div class="hx-card">
+          <form
+            th:object="${form}"
+            th:action="${mode == 'edit'} ? @{/admin/products/{id}/edit(id=${id})} : @{/admin/products/new}"
+            method="post"
+            class="vstack gap-3"
+          >
+            <input
+              type="hidden"
+              th:name="${_csrf.parameterName}"
+              th:value="${_csrf.token}"
+            />
+
+            <div>
+              <label class="form-label">Name</label>
+              <input class="form-control" th:field="*{name}" />
+              <div class="text-danger small" th:errors="*{name}"></div>
+            </div>
+
+            <div class="row g-2">
+              <div class="col-md-6">
+                <label class="form-label">Price</label>
+                <input class="form-control" th:field="*{price}" />
+                <div class="text-danger small" th:errors="*{price}"></div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Stock</label>
+                <input class="form-control" type="number" min="0" th:field="*{stock}" />
+                <div class="text-danger small" th:errors="*{stock}"></div>
+              </div>
+            </div>
+
+            <div>
+              <label class="form-label">Image URL</label>
+              <input class="form-control" th:field="*{imageUrl}" />
+              <div class="text-danger small" th:errors="*{imageUrl}"></div>
+            </div>
+
+            <div>
+              <label class="form-label">Description</label>
+              <textarea class="form-control" rows="5" th:field="*{description}"></textarea>
+              <div class="text-danger small" th:errors="*{description}"></div>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button class="btn btn-dark btn-sm" type="submit">
+                <span th:text="${mode == 'edit'} ? 'Save changes' : 'Create product'">Create product</span>
+              </button>
+              <a class="btn btn-outline-secondary btn-sm" th:href="@{/admin/products}">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="hx-card">
+          <h2 class="h6 text-white mb-2">Preview</h2>
+          <div class="hx-floating-banner">
+            <div class="small text-muted">Tip</div>
+            <p class="text-muted mb-0">
+              Use a 16:9 image URL for clean card previews on the store page.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</html>

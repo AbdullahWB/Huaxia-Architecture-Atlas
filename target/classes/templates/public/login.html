@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="layout/base :: page('Login', ~{::section})"
+>
+  <section class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="bg-white border rounded-4 p-4 shadow-sm">
+        <h1 class="h5 mb-3">Login</h1>
+
+        <div class="alert alert-danger py-2" th:if="${param.error}">
+          Invalid login or password.
+        </div>
+        <div class="alert alert-success py-2" th:if="${param.logout}">
+          You have been logged out.
+        </div>
+        <div class="alert alert-success py-2" th:if="${param.registered}">
+          Account created. Please login.
+        </div>
+
+        <form th:action="@{/login}" method="post" class="vstack gap-3">
+          <input
+            type="hidden"
+            th:name="${_csrf.parameterName}"
+            th:value="${_csrf.token}"
+          />
+
+          <div>
+            <label class="form-label">Username or Email</label>
+            <input
+              class="form-control"
+              name="login"
+              autocomplete="username"
+              required
+            />
+          </div>
+
+          <div>
+            <label class="form-label">Password</label>
+            <input
+              class="form-control"
+              type="password"
+              name="password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+
+          <button class="btn btn-dark w-100">Login</button>
+
+          <div class="d-flex justify-content-between small">
+            <a th:href="@{/forgot}">Forgot password?</a>
+            <a th:href="@{/register}">Create account</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</html>

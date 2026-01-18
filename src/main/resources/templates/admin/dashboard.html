@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html
   lang="en"
   xmlns:th="http://www.thymeleaf.org"
@@ -10,7 +10,7 @@
         <div class="hx-breadcrumb mb-2">Admin <span>Dashboard</span></div>
         <h1 class="h4 mb-1">Operations overview</h1>
         <p class="text-muted mb-0">
-          Track content health, review queues, and inbox in one glance.
+          Track content health, review queues, and store activity in one glance.
         </p>
       </div>
       <a class="btn btn-outline-secondary btn-sm" th:href="@{/}">Back to site</a>
@@ -34,6 +34,36 @@
 
       <div class="hx-card">
         <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-muted">Users</span>
+          <span class="small text-decoration-none">Active</span>
+        </div>
+        <div class="display-6 fw-semibold text-white" th:text="${userCount}">0</div>
+        <p class="text-muted mb-2">Registered accounts</p>
+        <div class="progress" role="progressbar" aria-label="User activity">
+          <div
+            class="progress-bar bg-primary"
+            th:style="'width:' + ${userCount > 0 ? 75 : 25} + '%'"
+          ></div>
+        </div>
+      </div>
+
+      <div class="hx-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-muted">Products</span>
+          <a th:href="@{/admin/products}" class="small text-decoration-none">Catalog</a>
+        </div>
+        <div class="display-6 fw-semibold text-white" th:text="${productCount}">0</div>
+        <p class="text-muted mb-2">Store inventory items</p>
+        <div class="progress" role="progressbar" aria-label="Product inventory">
+          <div
+            class="progress-bar bg-secondary"
+            th:style="'width:' + ${productCount > 0 ? 55 : 15} + '%'"
+          ></div>
+        </div>
+      </div>
+
+      <div class="hx-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
           <span class="text-muted">Pending posts</span>
           <a th:href="@{/admin/posts}" class="small text-decoration-none">Review</a>
         </div>
@@ -49,6 +79,21 @@
 
       <div class="hx-card">
         <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-muted">Pending orders</span>
+          <a th:href="@{/admin/orders}" class="small text-decoration-none">View</a>
+        </div>
+        <div class="display-6 fw-semibold text-white" th:text="${pendingOrderCount}">0</div>
+        <p class="text-muted mb-2">Store purchases to review</p>
+        <div class="progress" role="progressbar" aria-label="Order queue">
+          <div
+            class="progress-bar bg-success"
+            th:style="'width:' + ${pendingOrderCount > 0 ? 60 : 20} + '%'"
+          ></div>
+        </div>
+      </div>
+
+      <div class="hx-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
           <span class="text-muted">Unread messages</span>
           <a th:href="@{/admin/messages}" class="small text-decoration-none">Open inbox</a>
         </div>
@@ -56,7 +101,7 @@
         <p class="text-muted mb-2">New contact submissions</p>
         <div class="progress" role="progressbar" aria-label="Inbox">
           <div
-            class="progress-bar bg-success"
+            class="progress-bar bg-secondary"
             th:style="'width:' + ${unreadMessageCount > 0 ? 60 : 20} + '%'"
           ></div>
         </div>
@@ -90,6 +135,15 @@
                   </td>
                 </tr>
                 <tr>
+                  <td>Orders</td>
+                  <td>
+                    <span class="hx-tag" th:text="${pendingOrderCount} + ' pending'">0 pending</span>
+                  </td>
+                  <td class="text-end">
+                    <a class="btn btn-outline-secondary btn-sm" th:href="@{/admin/orders}">Review</a>
+                  </td>
+                </tr>
+                <tr>
                   <td>Messages</td>
                   <td>
                     <span class="hx-tag" th:text="${unreadMessageCount} + ' unread'">0 unread</span>
@@ -118,6 +172,8 @@
           <h2 class="h6 mb-3 text-white">Quick actions</h2>
           <div class="d-flex flex-column gap-2">
             <a class="btn btn-dark btn-sm" th:href="@{/admin/buildings/new}">Add building</a>
+            <a class="btn btn-outline-secondary btn-sm" th:href="@{/admin/products}">Manage products</a>
+            <a class="btn btn-outline-secondary btn-sm" th:href="@{/admin/orders}">View orders</a>
             <a class="btn btn-outline-secondary btn-sm" th:href="@{/admin/posts}">Moderate posts</a>
             <a class="btn btn-outline-secondary btn-sm" th:href="@{/admin/messages}">View messages</a>
             <a class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#hxInfoModal">

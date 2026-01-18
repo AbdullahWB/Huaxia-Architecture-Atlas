@@ -1,20 +1,80 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html
   lang="en"
   xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
   th:replace="layout/base :: page(${post.title}, ~{::section})"
 >
   <section>
-    <div class="bg-white border rounded-4 p-4">
-      <div class="small text-muted" th:text="${post.authorName} ?: 'Anonymous'">
-        Author
-      </div>
-      <h1 class="h4 mt-1" th:text="${post.title}">Title</h1>
-      <hr />
-      <div class="white-space-prewrap" th:text="${post.content}"></div>
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="bg-white border rounded-4 p-4">
+          <div class="small text-muted" th:text="${post.authorName} ?: 'Anonymous'">
+            Author
+          </div>
+          <h1 class="h4 mb-3" th:text="${post.title}">Title</h1>
+          <p class="mb-0" th:text="${post.content}">Content</p>
 
-      <div class="mt-3">
-        <a class="btn btn-outline-secondary btn-sm" th:href="@{/posts}">Back</a>
+          <div class="d-flex align-items-center gap-2 mt-3">
+            <form
+              sec:authorize="isAuthenticated()"
+              th:action="@{/posts/{id}/like(id=${post.id})}"
+              method="post"
+              class="d-inline"
+            >
+              <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+              <button
+                class="btn btn-sm"
+                th:classappend="${liked} ? 'btn-dark' : 'btn-outline-secondary'"
+                th:text="${liked} ? 'Liked' : 'Like'"
+              >
+                Like
+              </button>
+            </form>
+            <span class="small text-muted" th:text="${likeCount} + ' likes'">0 likes</span>
+            <span class="small text-muted" sec:authorize="!isAuthenticated()">Login to like</span>
+          </div>
+        </div>
+
+        <div class="bg-white border rounded-4 p-4 mt-3">
+          <h2 class="h6 text-white mb-3">Comments</h2>
+
+          <div class="vstack gap-2" th:if="${comments != null and !#lists.isEmpty(comments)}">
+            <div class="border rounded-3 p-3" th:each="c : ${comments}">
+              <div class="small text-muted" th:text="${c.user.username}">User</div>
+              <div class="mt-1" th:text="${c.content}">Comment</div>
+              <div class="small text-muted mt-2" th:if="${c.createdAt != null}"
+                   th:text="${#temporals.format(c.createdAt, 'yyyy-MM-dd')}">Date</div>
+            </div>
+          </div>
+
+          <div class="text-muted" th:if="${comments == null || #lists.isEmpty(comments)}">
+            No comments yet.
+          </div>
+
+          <div class="mt-3" sec:authorize="isAuthenticated()">
+            <form th:action="@{/posts/{id}/comment(id=${post.id})}" method="post" th:object="${commentForm}">
+              <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+              <label class="form-label">Add a comment</label>
+              <textarea class="form-control" rows="3" th:field="*{content}"></textarea>
+              <div class="text-danger small" th:errors="*{content}"></div>
+              <button class="btn btn-dark btn-sm mt-2">Post comment</button>
+            </form>
+          </div>
+          <div class="text-muted small mt-2" sec:authorize="!isAuthenticated()">
+            Login to add a comment.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="bg-white border rounded-4 p-4">
+          <h2 class="h6 mb-2">Related actions</h2>
+          <div class="d-flex flex-column gap-2">
+            <a class="btn btn-outline-secondary btn-sm" th:href="@{/posts}">Back to posts</a>
+            <a class="btn btn-dark btn-sm" th:href="@{/posts/new}" sec:authorize="isAuthenticated()">New post</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>

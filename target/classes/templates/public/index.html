@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html
   lang="en"
   xmlns:th="http://www.thymeleaf.org"
@@ -49,7 +49,7 @@
         </div>
         <div class="hx-floating-banner mb-3">
           <div class="small text-muted">Signal</div>
-          <div class="h5 text-white mb-2">Verified entries &amp; fresh discoveries</div>
+          <div class="h5 text-white mb-2">Verified entries and fresh discoveries</div>
           <p class="text-muted mb-0">
             Teacher-reviewed seed data plus AI-assisted suggestions keep the collection
             current and trustworthy.
@@ -57,26 +57,26 @@
         </div>
         <div class="hx-quick-stats">
           <div>
-            <div class="small text-muted">Bridges &amp; fortifications</div>
+            <div class="small text-muted">Curated buildings</div>
             <div class="d-flex align-items-center justify-content-between">
-              <span class="h4 mb-0">+8 curated</span>
-              <span class="hx-chip">Engineering</span>
+              <span class="h4 mb-0" th:text="${buildingCount} + ' total'">0 total</span>
+              <span class="hx-chip">Archive</span>
             </div>
             <div class="hx-spark mt-2"></div>
           </div>
           <div>
-            <div class="small text-muted">Palaces &amp; residences</div>
+            <div class="small text-muted">Approved posts</div>
             <div class="d-flex align-items-center justify-content-between">
-              <span class="h4 mb-0">+12 featured</span>
-              <span class="hx-chip">Spatial</span>
+              <span class="h4 mb-0" th:text="${approvedPostCount} + ' approved'">0 approved</span>
+              <span class="hx-chip">Community</span>
             </div>
             <div class="hx-spark mt-2"></div>
           </div>
           <div>
-            <div class="small text-muted">Community posts</div>
+            <div class="small text-muted">Store items</div>
             <div class="d-flex align-items-center justify-content-between">
-              <span class="h4 mb-0">Active</span>
-              <span class="hx-chip">Moderated</span>
+              <span class="h4 mb-0" th:text="${productCount} + ' items'">0 items</span>
+              <span class="hx-chip">Shop</span>
             </div>
             <div class="hx-spark mt-2"></div>
           </div>
@@ -97,8 +97,8 @@
             alt="Building cover"
           />
           <div class="d-flex justify-content-between align-items-center mt-3 mb-1">
-            <div class="small text-muted" th:text="${b.dynasty} + ' · ' + ${b.type}">
-              Dynasty · Type
+            <div class="small text-muted" th:text="${b.dynasty} + ' - ' + ${b.type}">
+              Dynasty - Type
             </div>
             <span class="badge text-bg-light">Curated</span>
           </div>
@@ -158,7 +158,7 @@
       </div>
       <div class="col-lg-4">
         <div class="hx-card h-100">
-          <h3 class="h5 text-white mb-2">Contribute &amp; review</h3>
+          <h3 class="h5 text-white mb-2">Contribute and review</h3>
           <p class="text-muted">
             Share findings via community posts; admins triage with the ML service and AI search.
           </p>
