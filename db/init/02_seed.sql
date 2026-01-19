@@ -274,7 +274,7 @@ VALUES -- Your existing 8 (kept as-is)
         'c. 1404',
         'Well-preserved wall section with dense watchtowers; key example of Ming frontier engineering.',
         'fortification,wall,tower,masonry,beijing',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNjPY4h-oIwFLR-kfoAUqBtUrpn1ci-iqRbA&s'
     ),
     (
         'City Wall of Nanjing',
@@ -284,7 +284,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1366-1386',
         'Massive city wall system built in early Ming; notable for scale and surviving gate complexes.',
         'wall,fortification,masonry,urban,jiangsu',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/2024Apr_-_Nanjing_City_Wall_%28south_section%29_-_img_11.jpg/250px-2024Apr_-_Nanjing_City_Wall_%28south_section%29_-_img_11.jpg'
     ),
     (
         'Pingyao City Wall',
@@ -294,7 +294,7 @@ VALUES -- Your existing 8 (kept as-is)
         'c. 1370',
         'Walled perimeter protecting a county city; integrated gates and tower structures.',
         'wall,fortification,masonry,urban,shanxi',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFfmZmJJOmuhbTROxbinBtZpmaoysDXi6xMg&s'
     ),
     (
         'Datong City Wall',
@@ -304,7 +304,7 @@ VALUES -- Your existing 8 (kept as-is)
         '14th century',
         'Fortified urban perimeter reflecting frontier pressures and military logistics of the region.',
         'wall,fortification,masonry,urban,shanxi',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJfA4BKGaGeFy_7ZRcS8C6WBFQsTxxMGWTvQ&s'
     ),
     (
         'Kaifeng City Wall',
@@ -314,7 +314,7 @@ VALUES -- Your existing 8 (kept as-is)
         '10th-12th century (rebuilt later)',
         'Urban defensive wall system historically adapted to flooding and warfare; multiple rebuild phases.',
         'wall,fortification,urban,henan,song',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtMT4xndZgN6m1tL5Htczw2LaA5q-OlxGsdQ&s'
     ),
     (
         'Humen Forts',
@@ -324,7 +324,7 @@ VALUES -- Your existing 8 (kept as-is)
         '18th-19th century',
         'Coastal artillery fortifications controlling river and sea approaches near the Pearl River Delta.',
         'fortification,coastal,military,engineering,guangdong',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCDRwFzZHP2bBNe3xWIKekNVjSb8XwEYLrhg&s'
     ),
     (
         'Dagu Forts',
@@ -334,7 +334,7 @@ VALUES -- Your existing 8 (kept as-is)
         '16th century (expanded 19th)',
         'Coastal defense works guarding approaches to Tianjin and the capital region.',
         'fortification,coastal,military,engineering,tianjin',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6-4SW5NNK6nkh1Wy1ZcgMe6WAfwFulQS3Bg&s'
     ),
     (
         'Pingyao Ancient City',
@@ -344,7 +344,7 @@ VALUES -- Your existing 8 (kept as-is)
         '14th-19th century',
         'Walled city with preserved streets and courtyard compounds reflecting late-imperial urban life.',
         'urban,streets,courtyard,commerce,shanxi',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-_ZoAk8C4D9SLk5wbdQlutf9soKSso0_xxw&s'
     ),
     (
         'Lijiang Old Town',
@@ -354,7 +354,7 @@ VALUES -- Your existing 8 (kept as-is)
         '13th-19th century',
         'Mountain town fabric integrating waterways, lanes, and courtyards; long-lived regional urban pattern.',
         'urban,streets,water,vernacular,yunnan',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8QIppGB4-Eac42BygPD5MkU5v4XclQd4mrg&s'
     ),
     (
         'Zhouzhuang Ancient Town',
@@ -364,7 +364,7 @@ VALUES -- Your existing 8 (kept as-is)
         '11th-19th century',
         'Canal-town street and bridge network supporting dense pedestrian commerce and waterside housing.',
         'urban,streets,water,commerce,jiangsu',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFLoKfyVs1AHmTQkU9WrSbI-6jV_NK44mlMg&s'
     ),
     (
         'Tongli Ancient Town',
@@ -374,7 +374,7 @@ VALUES -- Your existing 8 (kept as-is)
         '11th-19th century',
         'Water-town urban form with canals, bridges, and compact neighborhood lanes.',
         'urban,streets,water,commerce,jiangsu',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWR9wTG7KxtWATjJBBnc4nlhzKNWfyBdB7wA&s'
     ),
     (
         'Wuzhen Ancient Town',
@@ -384,7 +384,7 @@ VALUES -- Your existing 8 (kept as-is)
         '15th-19th century',
         'Canal-town fabric with waterside streets and traditional commercial frontage.',
         'urban,streets,water,commerce,zhejiang',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgL6Q7srkNWx8-dxarBLJpTmJe9sbyfQIb6w&s'
     ),
     (
         'Fenghuang Ancient Town',
@@ -394,7 +394,7 @@ VALUES -- Your existing 8 (kept as-is)
         'c. 1704',
         'Riverfront townscape with stilted houses and narrow lanes supporting local trade.',
         'urban,streets,water,vernacular,hunan',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWQ0beFBpqSko_V7QyjvKMkrHtrbIieeA3Dw&s'
     ),
     (
         'Kashgar Old City',
@@ -404,7 +404,7 @@ VALUES -- Your existing 8 (kept as-is)
         '16th-19th century',
         'Historic neighborhood fabric adapted to arid climate with dense lanes and courtyard compounds.',
         'urban,streets,courtyard,vernacular,xinjiang',
-        NULL
+        'https://www.asiaodysseytravel.com/images/china-tours/group-tours/ancient-city-of-kashgar-700-19.jpg'
     ),
     (
         'Shamian Island Historic District',
@@ -414,7 +414,7 @@ VALUES -- Your existing 8 (kept as-is)
         '19th-early 20th century',
         'Planned river-island district of civic and commercial buildings reflecting treaty-port era urbanism.',
         'urban,civic,commerce,modern,guangdong',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2Ts-tEP8KMXJnYsyAL7sLEnmTzb4rh3adLQ&s'
     ),
     (
         'Five Great Avenues (Wudadao)',
@@ -424,7 +424,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1900s-1930s',
         'Planned residential district featuring early modern streetscape, villas, and civic frontage.',
         'urban,streets,residence,modern,tianjin',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTJpmhfjPwavESsWeimGTUcAo_5TGsGVkh7g&s'
     ),
     (
         'Former French Concession (Historic Streetscape)',
@@ -434,7 +434,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1849-1943',
         'Tree-lined street network and dense blocks reflecting early modern planning and mixed-use development.',
         'urban,streets,modern,commerce,shanghai',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6GQJleMyFPgF3s5v_UM_8EVW8-Ufvz5wauw&s'
     ),
     (
         'Daming Palace (Ruins Park)',
@@ -444,7 +444,7 @@ VALUES -- Your existing 8 (kept as-is)
         '634',
         'Imperial palace precinct ruins representing Tang-period capital planning and monumental state architecture.',
         'palace,urban,ruins,imperial,shaanxi',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMvF8-wxbf3HrKsdsxKGX2R_zanerY9tBZjg&s'
     ),
     (
         'Weiyang Palace (Ruins)',
@@ -454,7 +454,7 @@ VALUES -- Your existing 8 (kept as-is)
         'c. 200 BCE',
         'Ruins of a major Western Han palace precinct; large-scale early imperial planning footprint.',
         'palace,urban,ruins,imperial,shaanxi',
-        NULL
+        'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/78/b5/12/weiyang-palace-is-the.jpg?w=1200&h=-1&s=1'
     ),
     (
         'Mukden Palace (Shenyang Imperial Palace)',
@@ -464,7 +464,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1625-1636',
         'Imperial palace complex reflecting early Qing court architecture and regional influences.',
         'palace,courtyard,timber,imperial,liaoning',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/1/1a/Dazheng_Hall_070314.jpg'
     ),
     (
         'Summer Palace (Yiheyuan)',
@@ -474,7 +474,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1750 (rebuilt 1886-1895)',
         'Imperial garden-palace integrating lakes, hills, halls, and long corridors into a coherent landscape composition.',
         'palace,garden,landscape,imperial,beijing',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/d/db/Longevity_Hill_of_the_Summer_Palace.jpg'
     ),
     (
         'Chengde Mountain Resort',
@@ -484,7 +484,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1703-1792',
         'Imperial resort complex combining palace precincts with expansive designed landscape and lakes.',
         'palace,garden,landscape,imperial,hebei',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/f/fa/Chengde_Mountain_Resort_22944-Chengde_%2844830038471%29.jpg'
     ),
     (
         'Prince Gong''s Mansion',
@@ -494,7 +494,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1776 (expanded later)',
         'Large elite courtyard residence with garden spaces reflecting late-imperial residential hierarchy.',
         'residence,courtyard,garden,elite,beijing',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqYGgmsFVXsiDER1J_PcFU0khObvMga6b3ZA&s'
     ),
     (
         'Qiao Family Compound',
@@ -504,7 +504,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1756-19th century',
         'Merchant family compound with layered courtyards, gate control, and strong spatial hierarchy.',
         'residence,courtyard,compound,commerce,shanxi',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/a/a2/Qiao_Family_Compound%2C_Jinyiyuan.JPG'
     ),
     (
         'Wang Family Compound',
@@ -514,7 +514,7 @@ VALUES -- Your existing 8 (kept as-is)
         '18th-19th century',
         'Extensive merchant-family courtyard cluster; complex circulation and hierarchical planning.',
         'residence,courtyard,compound,commerce,shanxi',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/c/c0/Lingshi_Jingsheng_Wangjia_Dayuan_2013.08.24_14-14-08.jpg'
     ),
     (
         'Hu Xueyan Residence',
@@ -524,7 +524,7 @@ VALUES -- Your existing 8 (kept as-is)
         'c. 1872',
         'Merchant-official residence integrating courtyards, halls, and garden elements.',
         'residence,courtyard,garden,commerce,zhejiang',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/6/6c/Hu_Xueyan%27s_former_residence%2C_Hangzhou_-_008.jpg'
     ),
     (
         'Chen Clan Ancestral Hall (Chen Clan Academy)',
@@ -534,7 +534,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1890-1894',
         'Clan-funded civic and educational complex with richly crafted timber halls and courtyards.',
         'civic,education,timber,courtyard,guangdong',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/f/f3/Chen_Clan_Ancestral_Hall_2025.06_02.jpg'
     ),
     (
         'Tianyi Pavilion',
@@ -544,7 +544,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1561',
         'Historic private library compound emphasizing controlled access, courtyards, and archival storage logic.',
         'education,library,courtyard,ming,zhejiang',
-        NULL
+        'https://www.chinadiscovery.com/assets/images/zhejiang/ningbo/tianyi-pavilion/qin-ancestral-hall.jpg'
     ),
     (
         'Yuelu Academy',
@@ -554,7 +554,7 @@ VALUES -- Your existing 8 (kept as-is)
         '976',
         'Major academy complex with axial courtyard sequence supporting scholarship and teaching.',
         'education,academy,courtyard,song,hunan',
-        NULL
+        'https://images.chinahighlights.com/allpicture/2019/11/8ff74a40ce6847089d63bdcf_cut_800x500_82.jpg'
     ),
     (
         'White Deer Grotto Academy',
@@ -564,7 +564,7 @@ VALUES -- Your existing 8 (kept as-is)
         '940 (rebuilt 1179)',
         'Historic academy precinct associated with Neo-Confucian learning; formal halls and courtyard order.',
         'education,academy,courtyard,jiangxi',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt-Sqp3Khn2N93CD74pMbr-BhpT3UdvPiSig&s'
     ),
     (
         'Songyang Academy',
@@ -574,7 +574,7 @@ VALUES -- Your existing 8 (kept as-is)
         '11th century',
         'Academy compound supporting teaching and scholarship; courtyard-based institutional form.',
         'education,academy,courtyard,henan',
-        NULL
+        'https://img2.chinadaily.com.cn/images/201812/04/5c061edda310eff369096ab4.jpeg'
     ),
     (
         'Donglin Academy',
@@ -584,7 +584,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1111 (rebuilt 1604)',
         'Academy and lecture-hall complex linked to intellectual movements; formal halls with courtyards.',
         'education,academy,courtyard,jiangsu',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/b/b3/%E6%9D%B1%E6%9E%97%E6%9B%B8%E9%99%A2%E7%89%8C%E5%9D%8A.jpg'
     ),
     (
         'Imperial College (Guozijian)',
@@ -594,7 +594,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1306',
         'State education institution with ceremonial and teaching spaces organized along formal courtyards.',
         'education,academy,courtyard,beijing',
-        NULL
+        'https://www.chinabeijingprivatetour.com/upload/ueditor/image/20171204/6364800961629150008544554.jpg'
     ),
     (
         'Jiangnan Examination Hall (Jiangnan Gongyuan)',
@@ -604,7 +604,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1168 (expanded later)',
         'Examination compound supporting civil service testing; regimented spaces for large-scale administration.',
         'education,examination,institution,jiangsu',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/d/d5/Jiangnan03.jpg'
     ),
     (
         'Humble Administrator''s Garden',
@@ -614,7 +614,7 @@ VALUES -- Your existing 8 (kept as-is)
         'c. 1509',
         'Classical garden composition integrating water, rocks, and pavilions within an urban estate setting.',
         'garden,residence,landscape,jiangsu,ming',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Suzhou_Zhuozheng_Yuan_2015.04.23_08-13-49.jpg/330px-Suzhou_Zhuozheng_Yuan_2015.04.23_08-13-49.jpg'
     ),
     (
         'Lingering Garden',
@@ -624,7 +624,7 @@ VALUES -- Your existing 8 (kept as-is)
         'c. 1593',
         'Garden estate integrating halls, rockeries, and controlled views; refined spatial sequencing.',
         'garden,residence,landscape,jiangsu,ming',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/0/02/Lingering_Garden.jpg'
     ),
     (
         'Master of the Nets Garden',
@@ -634,7 +634,7 @@ VALUES -- Your existing 8 (kept as-is)
         '12th century (rebuilt 18th)',
         'Compact garden residence emphasizing layered courtyards and carefully framed interior landscapes.',
         'garden,residence,landscape,jiangsu',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/a/a4/Master_of_the_Nets_Garden_Suzhou.jpg'
     ),
     (
         'Lion Grove Garden',
@@ -644,7 +644,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1342',
         'Garden known for rockery composition and spatial depth within a compact footprint.',
         'garden,residence,landscape,jiangsu,yuan',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/e/ef/20090905_Suzhou_Lion_Grove_Garden_4502.jpg'
     ),
     (
         'Couple''s Retreat Garden',
@@ -654,7 +654,7 @@ VALUES -- Your existing 8 (kept as-is)
         'c. 1874',
         'Late-imperial garden residence balancing water, halls, and circulation in a tight urban lot.',
         'garden,residence,landscape,jiangsu,qing',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/c/c3/20090905_Suzhou_Couple%27s_Retreat_Garden_4442.jpg'
     ),
     (
         'Beihai Park (Imperial Garden Precinct)',
@@ -664,7 +664,7 @@ VALUES -- Your existing 8 (kept as-is)
         '10th-18th century',
         'Imperial garden precinct developed over centuries; lakeside pavilions and axial links shaping public landscape today.',
         'civic,garden,landscape,beijing',
-        NULL
+        'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/de/f4/87/photo5jpg.jpg?w=900&h=500&s=1'
     ),
     (
         'Rishengchang Draft Bank',
@@ -674,7 +674,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1823',
         'Historic financial institution compound with storefront and courtyard office spaces supporting remittance operations.',
         'commerce,finance,courtyard,shanxi,qing',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYOr-nfuiFcjxJhBBWEzGF7UPBBNWz7--noA&s'
     ),
     (
         'Qinghefang Ancient Street',
@@ -684,7 +684,7 @@ VALUES -- Your existing 8 (kept as-is)
         '12th-19th century',
         'Historic commercial street with shopfront continuity and dense pedestrian-scale trading fabric.',
         'commerce,streets,urban,zhejiang',
-        NULL
+        'https://www.chinaeducationaltours.com/image/hz/guide/qinghefang.jpg'
     ),
     (
         'Shantang Street',
@@ -694,7 +694,7 @@ VALUES -- Your existing 8 (kept as-is)
         '825 (expanded later)',
         'Canal-adjacent commercial street supporting trade, lodging, and pedestrian movement.',
         'commerce,streets,water,jiangsu',
-        NULL
+        'https://www.chinadiscovery.com/assets/images/suzhou/shantang-street/shantang-night-view-768.jpg'
     ),
     (
         'Sideng Street (Shaxi)',
@@ -704,7 +704,7 @@ VALUES -- Your existing 8 (kept as-is)
         '14th-19th century',
         'Market street node on historic trade routes; compact blocks with mixed commercial and residential frontage.',
         'commerce,streets,urban,yunnan',
-        NULL
+        'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/06/0b/86/photo1jpg.jpg?w=1200&h=-1&s=1'
     ),
     (
         'Dashilan Commercial Street',
@@ -714,7 +714,7 @@ VALUES -- Your existing 8 (kept as-is)
         '15th-19th century',
         'Historic retail street corridor with dense shopfronts and courtyards behind street facades.',
         'commerce,streets,urban,beijing',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6CHboj5OoNnKQyzv5MtvwxIOIs5a3NFwhPQ&s'
     ),
     (
         'Pingyao County Government Office',
@@ -724,7 +724,7 @@ VALUES -- Your existing 8 (kept as-is)
         '14th-19th century',
         'County yamen compound integrating gate-hall sequence, courtyards, and administrative rooms.',
         'government,office,courtyard,administration,shanxi',
-        NULL
+        'https://www.discoverbeijingtour.com/wp-content/uploads/2024/02/Pingyao-Ancient-Government-Office2.jpg'
     ),
     (
         'Nanjing Presidential Palace',
@@ -734,7 +734,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1912-1949 (site older)',
         'Government office compound representing early modern administrative architecture and layered site history.',
         'government,office,modern,jiangsu',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/2/25/%E4%B8%AD%E5%8D%8E%E6%B0%91%E5%9B%BD%E6%80%BB%E7%BB%9F%E5%BA%9C%C2%B7%E5%8D%97%E4%BA%AC%C2%B7%E8%88%AA%E6%8B%8D.jpg'
     ),
     (
         'Zhifu Yamen',
@@ -744,7 +744,7 @@ VALUES -- Your existing 8 (kept as-is)
         '18th-19th century',
         'Prefectural government office compound with formal halls and courtyard sequences for administration.',
         'government,office,courtyard,shandong,qing',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQcQxRZasG_MHkmW84CIHdMy5hIdyTGM2wwQ&s'
     ),
     (
         'Huguang Guild Hall',
@@ -754,7 +754,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1759 (rebuilt 1840s)',
         'Guild hall complex supporting merchant networks, lodging, and assembly; courtyard layout with stage spaces.',
         'commerce,guildhall,courtyard,civic,chongqing',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/5/52/Chongqing_Huguang_Huiguan_2014.04.21_13-14-42.jpg'
     ),
     (
         'Tea Horse Road (Ancient Trade Route)',
@@ -764,7 +764,7 @@ VALUES -- Your existing 8 (kept as-is)
         '7th-19th century',
         'Overland trade route network supporting tea and horse exchange; route-side towns and logistics nodes.',
         'transport,trade,infrastructure,route,yunnan',
-        NULL
+        'https://www.tibettravel.org/blog/wp-content/uploads/2013/11/51.jpg'
     ),
     (
         'Shudao Plank Road (Historic Route Segments)',
@@ -774,7 +774,7 @@ VALUES -- Your existing 8 (kept as-is)
         '3rd century BCE-1st century',
         'Mountain transport routes using cliff-side road engineering to link basins and passes.',
         'transport,infrastructure,engineering,mountains,sichuan',
-        NULL
+        'https://qinshuroads.org/docs/html/Shu_Roads_Introduction_files/image001.jpg'
     ),
     (
         'Jiaohe Ruins',
@@ -784,7 +784,7 @@ VALUES -- Your existing 8 (kept as-is)
         '2nd century BCE-14th century',
         'Ancient earthen city site with street network and dense blocks adapted to arid plateau conditions.',
         'urban,ruins,earth,streets,xinjiang',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/a/ab/Turpan-jiaohe-ruinas-d28.jpg'
     ),
     (
         'Gaochang Ruins',
@@ -794,7 +794,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1st century BCE-14th century',
         'Ruined city site with administrative precinct traces and block structure in an oasis environment.',
         'urban,ruins,earth,streets,xinjiang',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/c/c0/Turpan-gaochang-d10.jpg'
     ),
     (
         'Hongcun Village',
@@ -804,7 +804,7 @@ VALUES -- Your existing 8 (kept as-is)
         'c. 1131-19th century',
         'Clan-based village fabric with lanes, ponds, and Huizhou-style residential compounds.',
         'urban,village,courtyard,vernacular,anhui',
-        NULL
+        'https://media.odynovotours.com/article/51000/Hong-Village-8_50109.jpg'
     ),
     (
         'Xidi Village',
@@ -814,7 +814,7 @@ VALUES -- Your existing 8 (kept as-is)
         'c. 1047-19th century',
         'Huizhou village fabric with dense lanes and courtyard houses reflecting merchant-era prosperity.',
         'urban,village,courtyard,vernacular,anhui',
-        NULL
+        'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/1a/13/cd/xidi-ancient-village.jpg?w=900&h=500&s=1'
     ),
     (
         'Dangjia Village',
@@ -824,7 +824,7 @@ VALUES -- Your existing 8 (kept as-is)
         'c. 1315-19th century',
         'Walled village fabric with lane hierarchy and courtyard residences adapted to loess terrain.',
         'urban,village,courtyard,vernacular,shaanxi',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/a/a1/Dangjiacun.JPG'
     ),
     (
         'Likeng Village (Wuyuan)',
@@ -834,7 +834,7 @@ VALUES -- Your existing 8 (kept as-is)
         '15th-19th century',
         'Village lanes and waterways with traditional residences reflecting Huizhou cultural influence.',
         'urban,village,water,vernacular,jiangxi',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/1_likeng_wuyuan_jiangxi_2025.jpg/1280px-1_likeng_wuyuan_jiangxi_2025.jpg'
     ),
     (
         'Chengqi Lou (Fujian Tulou)',
@@ -844,7 +844,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1709',
         'Large circular earthen communal residence organized around a central courtyard and ceremonial core.',
         'residence,rammed-earth,communal,courtyard,fujian',
-        NULL
+        'https://www.shutterstock.com/image-photo/aerial-close-view-chuxi-tulou-600nw-2307827365.jpg'
     ),
     (
         'Zhencheng Lou (Fujian Tulou)',
@@ -854,7 +854,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1912',
         'Earthen communal residence combining traditional form with early modern construction refinements.',
         'residence,rammed-earth,communal,courtyard,fujian',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-IR8AhsRmxAqlfig2Mc6nOYXxs2_aImvqrw&s'
     ),
     (
         'Tianluokeng Tulou Cluster',
@@ -864,7 +864,7 @@ VALUES -- Your existing 8 (kept as-is)
         '18th century',
         'Cluster of communal earthen residences arranged to suit topography and lineage organization.',
         'residence,rammed-earth,communal,cluster,fujian',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIwxpkvMIIq_Enukp53BBFogev7iSVYh5lTQ&s'
     ),
     (
         'Ruishi Lou (Kaiping Diaolou)',
@@ -874,7 +874,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1920s',
         'Nine-storey fortified tower residence blending local and imported design features for security and status.',
         'tower,residence,defense,hybrid,guangdong',
-        NULL
+        'https://www.tripchinaguide.com/public/upload/photo/kaiping-diaolou-and-villages/img_731_d20131220151832.jpg'
     ),
     (
         'Majianglong Diaolou Cluster',
@@ -884,7 +884,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1920s-1930s',
         'Landscape of fortified tower houses set among fields and waterways; security-driven rural architecture.',
         'tower,defense,vernacular,cluster,guangdong',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/9/97/Jinjiangli_0004.jpg'
     ),
     (
         'Zili Village Diaolou Cluster',
@@ -894,7 +894,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1920s-1930s',
         'Village group of fortified towers reflecting overseas-influenced styles and local security needs.',
         'tower,defense,vernacular,cluster,guangdong',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPfJXavP9vaiMuDdLh1vNkmXUZOwGAbX7m0g&s'
     ),
     (
         'Sun Yat-sen Mausoleum',
@@ -904,7 +904,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1926-1929',
         'Ceremonial memorial complex emphasizing axial procession and monumental stair sequence.',
         'civic,memorial,axial,monument,jiangsu',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Sun_Yat-sen_Mausoleum.jpg/500px-Sun_Yat-sen_Mausoleum.jpg'
     ),
     (
         'Sun Yat-sen Memorial Hall (Guangzhou)',
@@ -914,7 +914,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1931',
         'Large public assembly hall and memorial building; civic landmark of early modern era.',
         'civic,memorial,assembly,modern,guangdong',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/c/cc/SYS_Memorial_Hall_view_from_Taipei_101_20070801.jpg'
     ),
     (
         'The Bund (Historic Waterfront Streetscape)',
@@ -924,7 +924,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1840s-1930s',
         'Historic waterfront streetscape with dense commercial and civic frontage reflecting early modern urban development.',
         'urban,streets,modern,commerce,shanghai',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/5/5a/The_Bund_2.jpg'
     ),
     (
         'Shanghai Customs House',
@@ -934,7 +934,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1925-1927',
         'Major civic-office building associated with port administration and trade-era governance.',
         'government,office,modern,commerce,shanghai',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/2/27/Custom_House_Shanghai.jpg'
     ),
     (
         'Beijing Railway Station',
@@ -944,7 +944,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1959',
         'Major passenger rail station integrating large hall volumes and transport concourses.',
         'transport,infrastructure,modern,beijing',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/d/d4/Beijing_Old_Railway_Station.jpg'
     ),
     (
         'Central Street (Zhongyang Dajie)',
@@ -954,7 +954,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1898-1930s',
         'Historic pedestrian commercial street corridor with early modern block frontage and civic fabric.',
         'urban,streets,modern,commerce,heilongjiang',
-        NULL
+        'https://www.visitourchina.com/FileUpload/newpicture/cities/haerbin/zhongyangdajie1.jpg'
     ),
     (
         'Gulangyu Historic International Settlement',
@@ -964,7 +964,7 @@ VALUES -- Your existing 8 (kept as-is)
         'late 19th-early 20th century',
         'Compact island district with early modern streetscape and civic-commercial building fabric.',
         'urban,modern,civic,commerce,fujian',
-        NULL
+        'https://img2.chinadaily.com.cn/images/201901/21/5c457490a3106c65fff66296.jpeg'
     ),
     (
         'Ming Xiaoling Mausoleum (Site Complex)',
@@ -974,54 +974,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1381-1405',
         'Imperial mausoleum complex emphasizing processional planning and monumental stone setting.',
         'civic,imperial,memorial,axial,jiangsu',
-        NULL
-    );
--- =========================
--- Seed Posts
--- =========================
-INSERT INTO posts (
-        title,
-        content,
-        author_name,
-        author_email,
-        status
-    )
-VALUES (
-        'What makes timber-frame architecture durable?',
-        'Timber structures can last centuries when protected from moisture and designed with proper joinery. Share examples from historical sites.',
-        'Abdullah',
-        'abdullah@example.com',
-        'APPROVED'
-    ),
-    (
-        'I found a historic courtyard house in my city',
-        'I want to share photos and a short history. Please review and approve my post for the community section.',
-        'Student User',
-        'student@example.com',
-        'PENDING'
-    );
--- =========================
--- Seed Messages (Contact → Admin inbox)
--- =========================
-INSERT INTO messages (name, email, subject, message, is_read)
-VALUES (
-        'Visitor',
-        'visitor@example.com',
-        'Question about sources',
-        'Can you share references for the palace layout drawings used in the site?',
-        0
-    );
--- =========================
--- Seed AI logs (optional)
--- =========================
-INSERT INTO search_logs (query_text)
-VALUES ('bridge stone arch'),
-    ('Ming palace courtyard'),
-    ('Qing residence siheyuan');
-INSERT INTO chat_logs (user_question, model_answer)
-VALUES (
-        'Explain what a siheyuan is.',
-        'A siheyuan is a traditional courtyard residence organized around an inner courtyard, reflecting hierarchy and privacy.'
+        'https://upload.wikimedia.org/wikipedia/commons/d/d1/Nanjing_Ming_Xiaoling_2017.11.11_08-10-27.jpg'
     );
 -- =========================
 -- Seed Products

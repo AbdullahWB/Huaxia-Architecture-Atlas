@@ -15,7 +15,7 @@
   --hx-radius: 1.1rem;
   --hx-radius-sm: 0.75rem;
   --hx-shadow: 0 24px 50px rgba(0, 0, 0, 0.3);
-  --hx-hero-img: url("https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1600&q=80");
+  --hx-hero-img: url("https://i.ibb.co/676bwgNK/58de9a19-11a9-4e0c-9666-89494fe6f78d-md.jpg");
 }
 
 *,
@@ -25,11 +25,25 @@
 }
 
 body {
-  font-family: "Manrope", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    "Manrope",
+    "Segoe UI",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  background: radial-gradient(circle at 20% 20%, rgba(94, 156, 255, 0.08), transparent 30%),
-    radial-gradient(circle at 80% 0, rgba(123, 209, 201, 0.07), transparent 35%),
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(94, 156, 255, 0.08),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 0,
+      rgba(123, 209, 201, 0.07),
+      transparent 35%
+    ),
     #0b1022;
   color: var(--hx-text);
   min-height: 100vh;
@@ -197,7 +211,9 @@ textarea.form-control:focus {
 .navbar .nav-link {
   color: var(--hx-muted) !important;
   font-weight: 600;
-  transition: color 0.18s ease, opacity 0.18s ease;
+  transition:
+    color 0.18s ease,
+    opacity 0.18s ease;
 }
 
 .navbar .nav-link:hover,
@@ -242,7 +258,8 @@ textarea.form-control:focus {
   position: relative;
   overflow: hidden;
   border-radius: var(--hx-radius);
-  background: linear-gradient(120deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7)),
+  background:
+    linear-gradient(120deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7)),
     var(--hx-hero-img) center/cover no-repeat;
   color: #fff;
   padding: clamp(1.5rem, 3vw, 2.75rem);
@@ -253,7 +270,11 @@ textarea.form-control:focus {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(94, 156, 255, 0.2), rgba(123, 209, 201, 0.15));
+  background: linear-gradient(
+    135deg,
+    rgba(94, 156, 255, 0.2),
+    rgba(123, 209, 201, 0.15)
+  );
   opacity: 0.8;
 }
 
@@ -275,13 +296,20 @@ textarea.form-control:focus {
 }
 
 .hx-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.01)
+  );
   border: 1px solid var(--hx-border);
   border-radius: var(--hx-radius);
   padding: 1.25rem;
   box-shadow: var(--hx-shadow);
   overflow: hidden;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
 }
 
 .hx-card:hover {
@@ -343,7 +371,11 @@ textarea.form-control:focus {
 }
 
 .hx-floating-banner {
-  background: linear-gradient(120deg, rgba(94, 156, 255, 0.08), rgba(123, 209, 201, 0.08));
+  background: linear-gradient(
+    120deg,
+    rgba(94, 156, 255, 0.08),
+    rgba(123, 209, 201, 0.08)
+  );
   border: 1px dashed rgba(255, 255, 255, 0.1);
   border-radius: var(--hx-radius);
   padding: 1.25rem;
@@ -428,7 +460,11 @@ textarea.form-control:focus {
 .hx-spark {
   height: 40px;
   border-radius: 12px;
-  background: linear-gradient(90deg, rgba(94, 156, 255, 0.25), rgba(123, 209, 201, 0.2));
+  background: linear-gradient(
+    90deg,
+    rgba(94, 156, 255, 0.25),
+    rgba(123, 209, 201, 0.2)
+  );
   position: relative;
   overflow: hidden;
 }
@@ -437,7 +473,8 @@ textarea.form-control:focus {
   content: "";
   position: absolute;
   inset: 0;
-  background: repeating-linear-gradient(
+  background:
+    repeating-linear-gradient(
       90deg,
       rgba(255, 255, 255, 0.12),
       rgba(255, 255, 255, 0.12) 6px,
@@ -455,7 +492,11 @@ textarea.form-control:focus {
 }
 
 .hx-progress .progress-bar {
-  background: linear-gradient(90deg, rgba(94, 156, 255, 0.8), rgba(123, 209, 201, 0.9));
+  background: linear-gradient(
+    90deg,
+    rgba(94, 156, 255, 0.8),
+    rgba(123, 209, 201, 0.9)
+  );
 }
 
 .hx-table-card {
@@ -501,7 +542,12 @@ textarea.form-control:focus {
 
 .hx-section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   margin: 2rem 0;
 }
 
@@ -559,7 +605,10 @@ pre {
   border: 1px solid var(--hx-border);
   background: rgba(255, 255, 255, 0.04);
   color: var(--hx-text);
-  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease;
 }
 
 .hx-chat-history-item:hover {
@@ -619,7 +668,11 @@ pre {
 }
 
 .hx-chat-user .hx-chat-bubble {
-  background: linear-gradient(135deg, rgba(94, 156, 255, 0.25), rgba(94, 156, 255, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(94, 156, 255, 0.25),
+    rgba(94, 156, 255, 0.1)
+  );
   border-color: rgba(94, 156, 255, 0.45);
 }
 
@@ -666,7 +719,6 @@ pre {
   }
 }
 
-
 /* AI explain */
 
 .hx-ai-meta {
@@ -688,7 +740,6 @@ pre {
   padding: 0.85rem 1rem;
   min-height: 120px;
 }
-
 
 .hx-avatar-sm {
   width: 36px;

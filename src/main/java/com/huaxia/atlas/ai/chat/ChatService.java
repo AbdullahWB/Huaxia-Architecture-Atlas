@@ -64,8 +64,9 @@ public class ChatService {
     private String buildPrompt(String question, List<SearchResult> hits) {
         StringBuilder sb = new StringBuilder();
         sb.append("You are an expert guide for ancient Chinese architecture (pre-1911). ")
-                .append("Answer the user's question using ONLY the provided context. ")
-                .append("If the context is insufficient, say so and suggest what to search.\n\n");
+                .append("Answer the user's question as a helpful human guide. ")
+                .append("Use the context when it is relevant; otherwise answer from general knowledge and say so. ")
+                .append("If the question is outside architecture/history, ask for clarification and steer back.\n\n");
 
         sb.append("USER QUESTION:\n").append(question).append("\n\n");
 
@@ -73,7 +74,6 @@ public class ChatService {
 
         if (hits.isEmpty()) {
             sb.append("- (No matching buildings found in the database for this question.)\n\n");
-            return sb.toString();
         }
 
         int i = 1;
@@ -107,9 +107,11 @@ public class ChatService {
         }
 
         sb.append("RESPONSE REQUIREMENTS:\n")
-                .append("- Be concise and factual.\n")
-                .append("- If you mention an item, refer to it by name.\n")
-                .append("- Do not invent facts not present in context.\n");
+                .append("- Be clear, helpful, and concise.\n")
+                .append("- Use context when it is relevant; cite building names from it.\n")
+                .append("- If you go beyond the database, say so explicitly.\n")
+                .append("- Do not invent facts about specific buildings not in the context.\n")
+                .append("- If the question is outside ancient Chinese architecture, ask for clarification.\n");
 
         return sb.toString();
     }

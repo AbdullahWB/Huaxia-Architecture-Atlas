@@ -9,11 +9,13 @@ import com.huaxia.atlas.domain.product.Product;
 import com.huaxia.atlas.domain.product.ProductRepository;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+@ConditionalOnProperty(name = "app.seed.sample", havingValue = "true")
 @Component
 public class SampleDataSeeder implements ApplicationRunner {
 
