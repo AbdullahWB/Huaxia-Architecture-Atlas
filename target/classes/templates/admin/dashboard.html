@@ -317,7 +317,14 @@
           <div class="hx-section-divider"></div>
           <div>
             <div class="small text-muted">System health</div>
-            <div class="hx-spark mt-2"></div>
+            <div
+              class="progress hx-progress mt-2"
+              role="progressbar"
+              aria-label="System health"
+              th:attr="aria-valuenow=${systemHealthPercent},aria-valuemin=0,aria-valuemax=100"
+            >
+              <div class="progress-bar" th:style="'width:' + ${systemHealthPercent} + '%'"></div>
+            </div>
             <p class="text-muted small mt-2 mb-0">
               Data service, ML service, and AI chat endpoints are monitored via startup health checks.
             </p>

@@ -30,10 +30,31 @@ public class HomeController {
     public String home(Model model) {
         // show latest buildings as "featured"
         var featured = buildingService.list("", "", 0, 6).getContent();
+        long buildingCount = buildingRepository.count();
+        long approvedPostCount = postService.countApproved();
+        long productCount = productRepository.count();
+
         model.addAttribute("featured", featured);
-        model.addAttribute("buildingCount", buildingRepository.count());
-        model.addAttribute("approvedPostCount", postService.countApproved());
-        model.addAttribute("productCount", productRepository.count());
+        model.addAttribute("buildingCount", buildingCount);
+        model.addAttribute("approvedPostCount", approvedPostCount);
+        model.addAttribute("productCount", productCount);
+        model.addAttribute("buildingProgress", progress(buildingCount, 120));
+        model.addAttribute("approvedPostProgress", progress(approvedPostCount, 12));
+        model.addAttribute("productProgress", progress(productCount, 40));
         return "public/index";
+    }
+
+    private int progress(long count, int max) {
+        if (max <= 0) {
+            return 0;
+        }
+        long value = Math.round((double) count * 100 / max);
+        if (value < 0) {
+            return 0;
+        }
+        if (value > 100) {
+            return 100;
+        }
+        return (int) value;
     }
 }

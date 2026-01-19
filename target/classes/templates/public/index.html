@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html
   lang="en"
   xmlns:th="http://www.thymeleaf.org"
@@ -12,14 +12,16 @@
           <span class="hx-chip">AI + Human review</span>
           <span class="hx-chip">Pre-1911 China</span>
         </div>
-        <h1 class="display-6 fw-bold mb-2">
-          Huaxia Architecture Atlas
-        </h1>
+        <h1 class="display-6 fw-bold mb-2">Huaxia Architecture Atlas</h1>
         <p class="mb-3">
-          Search, explore, and chat with an AI guide about bridges, palaces, gardens,
-          and fortifications across dynasties.
+          Search, explore, and chat with an AI guide about bridges, palaces,
+          gardens, and fortifications across dynasties.
         </p>
-        <form class="d-flex flex-column flex-md-row gap-2" th:action="@{/search}" method="get">
+        <form
+          class="d-flex flex-column flex-md-row gap-2"
+          th:action="@{/search}"
+          method="get"
+        >
           <input
             class="form-control form-control-lg"
             name="q"
@@ -29,8 +31,12 @@
           <button class="btn btn-dark btn-lg" type="submit">Search</button>
         </form>
         <div class="mt-3 d-flex flex-wrap gap-2">
-          <a class="btn btn-outline-secondary btn-sm" th:href="@{/explore}">Explore</a>
-          <a class="btn btn-outline-secondary btn-sm" th:href="@{/chat}">AI Chat</a>
+          <a class="btn btn-outline-secondary btn-sm" th:href="@{/explore}"
+            >Explore</a
+          >
+          <a class="btn btn-outline-secondary btn-sm" th:href="@{/chat}"
+            >AI Chat</a
+          >
           <button
             class="btn btn-dark btn-sm"
             type="button"
@@ -49,36 +55,65 @@
         </div>
         <div class="hx-floating-banner mb-3">
           <div class="small text-muted">Signal</div>
-          <div class="h5 text-white mb-2">Verified entries and fresh discoveries</div>
+          <div class="h5 text-white mb-2">
+            Verified entries and fresh discoveries
+          </div>
           <p class="text-muted mb-0">
-            Teacher-reviewed seed data plus AI-assisted suggestions keep the collection
-            current and trustworthy.
+            Teacher-reviewed seed data plus AI-assisted suggestions keep the
+            collection current and trustworthy.
           </p>
         </div>
         <div class="hx-quick-stats">
           <div>
             <div class="small text-muted">Curated buildings</div>
             <div class="d-flex align-items-center justify-content-between">
-              <span class="h4 mb-0" th:text="${buildingCount} + ' total'">0 total</span>
+              <span class="h4 mb-0" th:text="${buildingCount} + ' total'"
+                >0 total</span
+              >
               <span class="hx-chip">Archive</span>
             </div>
-            <div class="hx-spark mt-2"></div>
+            <div
+              class="progress hx-progress mt-2"
+              role="progressbar"
+              aria-label="Curated buildings progress"
+              th:attr="aria-valuenow=${buildingProgress},aria-valuemin=0,aria-valuemax=100"
+            >
+              <div class="progress-bar" th:style="'width:' + ${buildingProgress} + '%'"></div>
+            </div>
           </div>
           <div>
             <div class="small text-muted">Approved posts</div>
             <div class="d-flex align-items-center justify-content-between">
-              <span class="h4 mb-0" th:text="${approvedPostCount} + ' approved'">0 approved</span>
+              <span class="h4 mb-0" th:text="${approvedPostCount} + ' approved'"
+                >0 approved</span
+              >
               <span class="hx-chip">Community</span>
             </div>
-            <div class="hx-spark mt-2"></div>
+            <div
+              class="progress hx-progress mt-2"
+              role="progressbar"
+              aria-label="Approved posts progress"
+              th:attr="aria-valuenow=${approvedPostProgress},aria-valuemin=0,aria-valuemax=100"
+            >
+              <div class="progress-bar" th:style="'width:' + ${approvedPostProgress} + '%'"></div>
+            </div>
           </div>
           <div>
             <div class="small text-muted">Store items</div>
             <div class="d-flex align-items-center justify-content-between">
-              <span class="h4 mb-0" th:text="${productCount} + ' items'">0 items</span>
+              <span class="h4 mb-0" th:text="${productCount} + ' items'"
+                >0 items</span
+              >
               <span class="hx-chip">Shop</span>
             </div>
-            <div class="hx-spark mt-2"></div>
+            <div
+              class="progress hx-progress mt-2"
+              role="progressbar"
+              aria-label="Store items progress"
+              th:attr="aria-valuenow=${productProgress},aria-valuemin=0,aria-valuemax=100"
+            >
+              <div class="progress-bar" th:style="'width:' + ${productProgress} + '%'"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -93,11 +128,16 @@
       <div class="col-md-4" th:each="b : ${featured}">
         <div class="hx-card h-100">
           <img
-            th:src="${b.coverImage} ?: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80'"
+            th:src="${b.coverImage} ?: 'https://tse2.mm.bing.net/th/id/OIP.G24XbH6tJBJav68LOsTyVAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3'"
             alt="Building cover"
           />
-          <div class="d-flex justify-content-between align-items-center mt-3 mb-1">
-            <div class="small text-muted" th:text="${b.dynasty} + ' - ' + ${b.type}">
+          <div
+            class="d-flex justify-content-between align-items-center mt-3 mb-1"
+          >
+            <div
+              class="small text-muted"
+              th:text="${b.dynasty} + ' - ' + ${b.type}"
+            >
               Dynasty - Type
             </div>
             <span class="badge text-bg-light">Curated</span>
@@ -107,7 +147,9 @@
           <div class="mb-2">
             <span class="hx-tag" th:text="${b.type}">Type</span>
             <span class="hx-tag" th:text="${b.dynasty}">Dynasty</span>
-            <span class="hx-tag" th:if="${b.tags}" th:text="${b.tags}">Tags</span>
+            <span class="hx-tag" th:if="${b.tags}" th:text="${b.tags}"
+              >Tags</span
+            >
           </div>
           <div class="d-flex flex-wrap gap-2">
             <a
@@ -125,9 +167,7 @@
             >
               AI explain
             </button>
-            <a
-              class="btn btn-outline-secondary btn-sm"
-              th:href="@{/explore}"
+            <a class="btn btn-outline-secondary btn-sm" th:href="@{/explore}"
               >More like this</a
             >
           </div>
@@ -158,11 +198,14 @@
         <div class="hx-card h-100">
           <h3 class="h5 text-white mb-2">AI Chat + Context</h3>
           <p class="text-muted">
-            Ask the Atlas a question; it cites nearby entries and avoids inventing facts.
+            Ask the Atlas a question; it cites nearby entries and avoids
+            inventing facts.
           </p>
           <div class="d-flex gap-2 mt-2">
             <a class="btn btn-dark btn-sm" th:href="@{/chat}">Open chat</a>
-            <a class="btn btn-outline-secondary btn-sm" th:href="@{/search}">Context search</a>
+            <a class="btn btn-outline-secondary btn-sm" th:href="@{/search}"
+              >Context search</a
+            >
           </div>
         </div>
       </div>
@@ -170,11 +213,16 @@
         <div class="hx-card h-100">
           <h3 class="h5 text-white mb-2">Contribute and review</h3>
           <p class="text-muted">
-            Share findings via community posts; admins triage with the ML service and AI search.
+            Share findings via community posts; admins triage with the ML
+            service and AI search.
           </p>
           <div class="d-flex gap-2 mt-2">
-            <a class="btn btn-outline-secondary btn-sm" th:href="@{/posts}">View posts</a>
-            <a class="btn btn-outline-secondary btn-sm" th:href="@{/contact}">Contact admin</a>
+            <a class="btn btn-outline-secondary btn-sm" th:href="@{/posts}"
+              >View posts</a
+            >
+            <a class="btn btn-outline-secondary btn-sm" th:href="@{/contact}"
+              >Contact admin</a
+            >
           </div>
         </div>
       </div>

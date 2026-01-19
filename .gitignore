@@ -1,0 +1,33 @@
+# Java/Maven
+target/
+*.class
+*.log
+hs_err_pid*
+
+# IntelliJ / Eclipse / VS Code
+.idea/
+.project
+.classpath
+.settings/
+.vscode/
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Env and secrets
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# Runtime uploads and logs
+uploads/
+logs/
+
+# Temporary files
+*.tmp
+tmp.*
+*.swp

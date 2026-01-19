@@ -23,7 +23,7 @@ VALUES -- Your existing 8 (kept as-is)
         'c. 605',
         'Stone segmental arch bridge; major achievement in early bridge engineering.',
         'stone,arch,bridge,engineering,hebei',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ89iRhm9XWVqeBCamNa7mOiotUXbLLK92dOw&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ89iRhm9XWVqeBCamNa7mOiotUXbLLK92dOw&s'
     ),
     (
         'Forbidden City (Palace Complex)',
@@ -33,7 +33,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1406-1420',
         'Imperial palace complex with axial planning, courtyards, and timber structures.',
         'palace,courtyard,timber,imperial,beijing',
-        'https://images.pexels.com/photos/34502247/pexels-photo-34502247.jpeg',
+        'https://images.pexels.com/photos/34502247/pexels-photo-34502247.jpeg'
     ),
     (
         'Siheyuan Courtyard Residence (Typical)',
@@ -43,7 +43,7 @@ VALUES -- Your existing 8 (kept as-is)
         '18th-19th century',
         'Traditional courtyard house emphasizing symmetry, hierarchy, and enclosed space.',
         'residence,courtyard,vernacular,beijing,qing',
-        'https://images.pexels.com/photos/25637354/pexels-photo-25637354.jpeg',
+        'https://images.pexels.com/photos/25637354/pexels-photo-25637354.jpeg'
     ),
     (
         'Hutong Street Layout (Historic)',
@@ -53,7 +53,7 @@ VALUES -- Your existing 8 (kept as-is)
         '15th-19th century',
         'Lane-based urban pattern supporting courtyard housing and neighborhood life.',
         'urban,streets,housing,courtyard,beijing',
-        'https://images.pexels.com/photos/34939602/pexels-photo-34939602.jpeg',
+        'https://images.pexels.com/photos/34939602/pexels-photo-34939602.jpeg'
     ),
     (
         'Ancient City Wall (Representative Section)',
@@ -63,7 +63,7 @@ VALUES -- Your existing 8 (kept as-is)
         '14th century',
         'Large-scale defensive wall system with gates and watchtowers; masonry construction.',
         'wall,fortification,masonry,urban,shaanxi',
-        'https://images.pexels.com/photos/29403950/pexels-photo-29403950.jpeg',
+        'https://images.pexels.com/photos/29403950/pexels-photo-29403950.jpeg'
     ),
     (
         'Traditional Yamen (Local Government Office)',
@@ -73,7 +73,7 @@ VALUES -- Your existing 8 (kept as-is)
         '17th-19th century',
         'Local administrative office compound; formal halls and courtyard sequence.',
         'government,office,courtyard,administration,qing',
-        'https://images.pexels.com/photos/35143775/pexels-photo-35143775.jpeg',
+        'https://images.pexels.com/photos/35143775/pexels-photo-35143775.jpeg'
     ),
     (
         'Classical Garden Residence (Scholars)',
@@ -83,7 +83,7 @@ VALUES -- Your existing 8 (kept as-is)
         '16th-17th century',
         'Residential garden composition with pavilions, rocks, and water features (non-religious).',
         'garden,residence,landscape,jiangsu,ming',
-        'https://images.pexels.com/photos/21938165/pexels-photo-21938165.jpeg',
+        'https://images.pexels.com/photos/21938165/pexels-photo-21938165.jpeg'
     ),
     (
         'Academy Courtyard (Study Hall)',
@@ -93,7 +93,7 @@ VALUES -- Your existing 8 (kept as-is)
         '11th-13th century',
         'Educational courtyard complex used for teaching and scholarship.',
         'education,academy,courtyard,song,scholarship',
-        'https://images.pexels.com/photos/30516575/pexels-photo-30516575.jpeg',
+        'https://images.pexels.com/photos/30516575/pexels-photo-30516575.jpeg'
     ),
     -- 92 additional named entries (no "Representative" in the name)
     (
@@ -104,7 +104,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1189-1192',
         'Stone bridge over the Yongding River, famed for carved stone lions and historic transport significance.',
         'bridge,stone,masonry,engineering,beijing',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9EtYNyYLd26Imh_GTeB3bXGfVtzE5xYPuNA&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9EtYNyYLd26Imh_GTeB3bXGfVtzE5xYPuNA&s'
     ),
     (
         'Guangji Bridge (Xiangzi Bridge)',
@@ -114,7 +114,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1170-1206',
         'Bridge complex combining stone piers and movable floating sections; repeatedly rebuilt and maintained.',
         'bridge,stone,engineering,water,guangdong',
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Guangji_Bridge.JPG/330px-Guangji_Bridge.JPG',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Guangji_Bridge.JPG/330px-Guangji_Bridge.JPG'
     ),
     (
         'Luoyang Bridge (Wan''an Bridge)',
@@ -124,7 +124,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1053-1059',
         'Early large-scale stone beam bridge using raft foundation techniques in a tidal estuary environment.',
         'bridge,stone,engineering,water,fujian',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNiJnuVxQu9lMOFxG-rv5qzuqUdwnG59SpKw&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNiJnuVxQu9lMOFxG-rv5qzuqUdwnG59SpKw&s'
     ),
     (
         'Anping Bridge (Wuli Bridge)',
@@ -134,7 +134,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1138-1151',
         'Long stone beam bridge supporting coastal transport and commerce in the Quanzhou region.',
         'bridge,stone,masonry,engineering,fujian',
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/%E5%AE%89%E6%B5%B7%E9%8E%AE%E7%9A%84%E5%AE%89%E5%B9%B3%E6%A9%8B.JPG/330px-%E5%AE%89%E6%B5%B7%E9%8E%AE%E7%9A%84%E5%AE%89%E5%B9%B3%E6%A9%8B.JPG',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/%E5%AE%89%E6%B5%B7%E9%8E%AE%E7%9A%84%E5%AE%89%E5%B9%B3%E6%A9%8B.JPG/330px-%E5%AE%89%E6%B5%B7%E9%8E%AE%E7%9A%84%E5%AE%89%E5%B9%B3%E6%A9%8B.JPG'
     ),
     (
         'Baodai Bridge',
@@ -144,7 +144,7 @@ VALUES -- Your existing 8 (kept as-is)
         '816 (rebuilt 15th century)',
         'Multi-arch stone bridge spanning canal waters; a landmark of Jiangnan bridge building traditions.',
         'bridge,stone,masonry,water,jiangsu',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNPurbD4q_F0F078QtehO2oSieWCV1inC6SQ&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNPurbD4q_F0F078QtehO2oSieWCV1inC6SQ&s'
     ),
     (
         'Chengyang Wind and Rain Bridge',
@@ -154,7 +154,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1912-1916',
         'Covered timber bridge serving both crossing and community shelter; notable carpentry and truss logic.',
         'bridge,timber,vernacular,craft,guangxi',
-        'https://upload.wikimedia.org/wikipedia/commons/c/cc/Dong-minority-bridge-1.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/c/cc/Dong-minority-bridge-1.jpg'
     ),
     (
         'Wuhan Yangtze River Bridge',
@@ -164,7 +164,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1955-1957',
         'First major bridge spanning the Yangtze at Wuhan; integrated rail and roadway deck.',
         'bridge,infrastructure,engineering,transport,hubei',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE6ANPEKU_GzBqj4CuJKNnq-aimI0sor0Pyw&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE6ANPEKU_GzBqj4CuJKNnq-aimI0sor0Pyw&s'
     ),
     (
         'Nanjing Yangtze River Bridge',
@@ -174,7 +174,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1960-1968',
         'Large river crossing combining rail and roadway; iconic modern infrastructure landmark.',
         'bridge,infrastructure,engineering,transport,jiangsu',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNQ4wtMgDifHK-xKwoKV73rtvxYRrCPaFgiQ&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNQ4wtMgDifHK-xKwoKV73rtvxYRrCPaFgiQ&s'
     ),
     (
         'Dujiangyan Irrigation System',
@@ -184,7 +184,7 @@ VALUES -- Your existing 8 (kept as-is)
         'c. 256 BCE',
         'Irrigation and flood-control works on the Min River, widely regarded as a major hydraulic engineering achievement.',
         'infrastructure,water,engineering,irrigation,sichuan',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAQ-zDz1de3jwT43Nf1xKZAeq2rlPXSmM7w&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAQ-zDz1de3jwT43Nf1xKZAeq2rlPXSmM7w&s'
     ),
     (
         'Lingqu Canal',
@@ -194,7 +194,7 @@ VALUES -- Your existing 8 (kept as-is)
         '214 BCE',
         'Canal linking river systems to support transport and logistics; early example of large-scale water engineering.',
         'infrastructure,canal,water,engineering,guangxi',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkEJ8s4ZcbzDkCXSUQDYY7l3VYm2Tl_l-UCA&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkEJ8s4ZcbzDkCXSUQDYY7l3VYm2Tl_l-UCA&s'
     ),
     (
         'Beijing-Hangzhou Grand Canal',
@@ -204,7 +204,7 @@ VALUES -- Your existing 8 (kept as-is)
         '604-609 (expanded later)',
         'Major canal network linking north and south; foundational transport corridor for administration and trade.',
         'infrastructure,canal,transport,engineering,water',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHcimkpnCU1rgO2oe-ajfuSzDep-NLBe67mw&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHcimkpnCU1rgO2oe-ajfuSzDep-NLBe67mw&s'
     ),
     (
         'Zhengguo Canal',
@@ -214,7 +214,7 @@ VALUES -- Your existing 8 (kept as-is)
         '246-236 BCE',
         'Irrigation canal system improving agricultural productivity in the Guanzhong Plain.',
         'infrastructure,water,engineering,irrigation,shaanxi',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnPqpiCIu7I59qFKO6YeeuQFw1ruSCZEqD4Q&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnPqpiCIu7I59qFKO6YeeuQFw1ruSCZEqD4Q&s'
     ),
     (
         'Turpan Karez (Kanh Erjing) Wells System',
@@ -224,7 +224,7 @@ VALUES -- Your existing 8 (kept as-is)
         '18th-19th century (in-use earlier)',
         'Underground water channels and shafts enabling irrigation and settlement in arid environments.',
         'infrastructure,water,engineering,irrigation,xinjiang',
-        'https://xj.antcome.com/upload/attraction/20170419/58f6ebc88d6f8.jpg',
+        'https://xj.antcome.com/upload/attraction/20170419/58f6ebc88d6f8.jpg'
     ),
     (
         'Shanhai Pass (Shanhaiguan)',
@@ -234,7 +234,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1381',
         'Strategic pass where fortifications control the corridor between mountains and sea.',
         'fortification,wall,gate,masonry,hebei',
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/ShanhaiguanGreatWall-end.jpg/250px-ShanhaiguanGreatWall-end.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/ShanhaiguanGreatWall-end.jpg/250px-ShanhaiguanGreatWall-end.jpg'
     ),
     (
         'Jiayu Pass (Jiayuguan)',
@@ -244,7 +244,7 @@ VALUES -- Your existing 8 (kept as-is)
         'c. 1372',
         'Fortress-pass anchoring the western end of Ming frontier defenses in the Hexi Corridor.',
         'fortification,wall,pass,masonry,gansu',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWqeTmX_dVIZmay-V3IEapt9y35F1CqgGryA&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWqeTmX_dVIZmay-V3IEapt9y35F1CqgGryA&s'
     ),
     (
         'Juyong Pass (Juyongguan)',
@@ -254,7 +254,7 @@ VALUES -- Your existing 8 (kept as-is)
         '14th-16th century',
         'Mountain pass fortified to secure access routes to the capital; layered gate and wall works.',
         'fortification,wall,pass,masonry,beijing',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxtq5c9ZEnw9iUEHASk0dkShEMBgIeFehTZA&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxtq5c9ZEnw9iUEHASk0dkShEMBgIeFehTZA&s'
     ),
     (
         'Badaling Great Wall',
@@ -264,7 +264,7 @@ VALUES -- Your existing 8 (kept as-is)
         '16th century',
         'Highly developed wall section with towers and parapets; representative of late Ming defensive works.',
         'fortification,wall,tower,masonry,beijing',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf7zBnPWlK_3Qy6YC9WaIOoUNuyu3Qzz-4jQ&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf7zBnPWlK_3Qy6YC9WaIOoUNuyu3Qzz-4jQ&s'
     ),
     (
         'Mutianyu Great Wall',

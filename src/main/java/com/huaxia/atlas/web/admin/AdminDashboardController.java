@@ -7,6 +7,7 @@ import com.huaxia.atlas.domain.post.PostService;
 import com.huaxia.atlas.domain.product.ProductRepository;
 import com.huaxia.atlas.domain.user.UnbanRequestService;
 import com.huaxia.atlas.domain.user.UserService;
+import java.math.BigDecimal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -51,15 +52,56 @@ public class AdminDashboardController {
 
     @GetMapping("/admin/dashboard")
     public String dashboard(Model model) {
-        model.addAttribute("buildingCount", buildingRepository.count());
-        model.addAttribute("pendingPostCount", postService.countPending());
-        model.addAttribute("unreadMessageCount", messageService.countUnread());
-        model.addAttribute("userCount", userService.countAll());
-        model.addAttribute("productCount", productRepository.count());
-        model.addAttribute("pendingOrderCount", orderService.countPending());
-        model.addAttribute("totalRevenue", orderService.totalRevenue());
+        long buildingCount = buildingRepository.count();
+        long pendingPostCount = postService.countPending();
+        long approvedPostCount = postService.countApproved();
+        long unreadMessageCount = messageService.countUnread();
+        long userCount = userService.countAll();
+        long productCount = productRepository.count();
+        long pendingOrderCount = orderService.countPending();
+        BigDecimal totalRevenue = orderService.totalRevenue();
+
+        model.addAttribute("buildingCount", buildingCount);
+        model.addAttribute("pendingPostCount", pendingPostCount);
+        model.addAttribute("unreadMessageCount", unreadMessageCount);
+        model.addAttribute("userCount", userCount);
+        model.addAttribute("productCount", productCount);
+        model.addAttribute("pendingOrderCount", pendingOrderCount);
+        model.addAttribute("totalRevenue", totalRevenue);
+        model.addAttribute("systemHealthPercent", systemHealthPercent(buildingCount, approvedPostCount, productCount, totalRevenue));
         model.addAttribute("recentUsers", userService.recentUsers());
         model.addAttribute("unbanRequests", unbanRequestService.latestPending(6));
         return "admin/dashboard";
+    }
+
+    private int systemHealthPercent(long buildingCount, long approvedPostCount, long productCount, BigDecimal totalRevenue) {
+        int signals = 0;
+        if (buildingCount > 0) {
+            signals++;
+        }
+        if (approvedPostCount > 0) {
+            signals++;
+        }
+        if (productCount > 0) {
+            signals++;
+        }
+        if (totalRevenue != null && totalRevenue.compareTo(BigDecimal.ZERO) > 0) {
+            signals++;
+        }
+        return progress(signals, 4);
+    }
+
+    private int progress(long count, int max) {
+        if (max <= 0) {
+            return 0;
+        }
+        long value = Math.round((double) count * 100 / max);
+        if (value < 0) {
+            return 0;
+        }
+        if (value > 100) {
+            return 100;
+        }
+        return (int) value;
     }
 }

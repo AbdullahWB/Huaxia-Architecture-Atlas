@@ -35,10 +35,19 @@
           <h1 class="h3 mb-3" th:text="${building.name}">Name</h1>
 
           <img
-            th:if="${building.coverImage}"
-            th:src="@{${building.coverImage}}"
+            th:if="${!#strings.isEmpty(building.coverImage)}"
+            th:src="${building.coverImage}"
             class="img-fluid rounded-4 border mb-3"
-            alt="cover"
+            th:alt="${building.name}"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80';"
+          />
+          <img
+            th:if="${#strings.isEmpty(building.coverImage)}"
+            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
+            class="img-fluid rounded-4 border mb-3"
+            alt="Building cover placeholder"
+            loading="lazy"
           />
 
           <h2 class="h6 text-muted mb-2">Description</h2>
@@ -57,7 +66,7 @@
             >
           </div>
 
-          <div class="d-flex align-items-center gap-2 mt-3">
+          <div class="d-flex align-items-center gap-2 mt-3 flex-wrap">
             <form
               sec:authorize="isAuthenticated()"
               th:action="@{/buildings/{id}/like(id=${building.id})}"
@@ -73,6 +82,16 @@
                 Like
               </button>
             </form>
+            <button
+              class="btn btn-outline-secondary btn-sm"
+              type="button"
+              data-ai-explain
+              data-ai-type="buildings"
+              data-ai-label="Building summary"
+              th:attr="data-ai-id=${building.id},data-ai-title=${building.name}"
+            >
+              AI explain
+            </button>
             <span class="small text-muted" th:text="${likeCount} + ' likes'">0 likes</span>
             <span class="small text-muted" sec:authorize="!isAuthenticated()">Login to like</span>
           </div>
