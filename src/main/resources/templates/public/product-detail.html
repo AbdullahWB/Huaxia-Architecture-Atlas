@@ -69,7 +69,7 @@
             <div class="border rounded-3 p-3" th:each="r : ${reviews}">
               <div class="d-flex align-items-center gap-2">
                 <img
-                  th:if="${r.user.avatarUrl}"
+                  th:if="${!#strings.isEmpty(r.user.avatarUrl)}"
                   th:src="@{${r.user.avatarUrl}}"
                   class="hx-avatar-sm"
                   alt="avatar"

@@ -76,6 +76,10 @@ public class UserDashboardController {
         model.addAttribute("orderCount", orderCount);
         model.addAttribute("postLikeCount", postLikes);
         model.addAttribute("buildingLikeCount", buildingLikes);
+        model.addAttribute("postProgress", progress(postCount, 10));
+        model.addAttribute("orderProgress", progress(orderCount, 6));
+        model.addAttribute("postLikeProgress", progress(postLikes, 12));
+        model.addAttribute("buildingLikeProgress", progress(buildingLikes, 12));
         model.addAttribute("profileForm", profileForm);
         model.addAttribute("notifications", notificationService.latestForUser(user.getId()));
         model.addAttribute("unreadNotificationCount", notificationService.countUnread(user.getId()));
@@ -115,5 +119,20 @@ public class UserDashboardController {
         userService.updateProfile(user.getId(), profileForm.getBio(), avatarUrl);
         ra.addFlashAttribute("success", "Profile updated.");
         return "redirect:/dashboard";
+    }
+
+
+    private int progress(long count, int max) {
+        if (max <= 0) {
+            return 0;
+        }
+        long value = Math.round((double) count * 100 / max);
+        if (value < 0) {
+            return 0;
+        }
+        if (value > 100) {
+            return 100;
+        }
+        return (int) value;
     }
 }

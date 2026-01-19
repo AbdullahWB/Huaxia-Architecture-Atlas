@@ -105,4 +105,44 @@
     });
   }
 
+  // User message modal (dashboard)
+  const userMessageModalEl = document.getElementById("hxUserMessageModal");
+  if (userMessageModalEl && window.bootstrap) {
+    const subjectEl = document.getElementById("hxUserMessageModalLabel");
+    const metaEl = document.getElementById("hxUserMessageMeta");
+    const bodyEl = document.getElementById("hxUserMessageBody");
+    const adminEl = document.getElementById("hxUserMessageAdmin");
+    const adminWrap = document.getElementById("hxUserMessageAdminWrap");
+    const aiEl = document.getElementById("hxUserMessageAi");
+    const aiWrap = document.getElementById("hxUserMessageAiWrap");
+
+    const setText = (el, value) => {
+      if (!el) return;
+      el.textContent = value || "";
+    };
+
+    document.querySelectorAll("[data-message-open]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const subject = button.dataset.messageSubject || "Message";
+        const date = button.dataset.messageDate || "";
+        const body = button.dataset.messageBody || "";
+        const admin = button.dataset.messageAdmin || "";
+        const ai = button.dataset.messageAi || "";
+
+        setText(subjectEl, subject || "Message");
+        setText(metaEl, date ? `Received ${date}` : "Message details");
+        setText(bodyEl, body || "No message content.");
+        setText(adminEl, admin);
+        setText(aiEl, ai);
+
+        if (adminWrap) {
+          adminWrap.style.display = admin ? "" : "none";
+        }
+        if (aiWrap) {
+          aiWrap.style.display = ai ? "" : "none";
+        }
+      });
+    });
+  }
+
 })();

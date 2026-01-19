@@ -108,7 +108,13 @@ public class UserService {
         }
         Map<String, UserAccount> map = new HashMap<>();
         for (UserAccount user : repo.findByEmailIgnoreCaseIn(emails)) {
-            map.put(user.getEmail().toLowerCase(), user);
+            String email = user.getEmail();
+            if (email == null || email.isBlank()) {
+                continue;
+            }
+            String trimmed = email.trim();
+            map.put(trimmed, user);
+            map.put(trimmed.toLowerCase(), user);
         }
         return map;
     }
@@ -122,6 +128,29 @@ public class UserService {
             user.setAvatarUrl(avatarUrl.trim());
         }
         return repo.save(user);
+    }
+
+    @Transactional
+    public boolean setEnabled(Long userId, boolean enabled) {
+        return repo.findById(userId).map(user -> {
+            if (user.getRole() == UserRole.ADMIN) {
+                return false;
+            }
+            user.setEnabled(enabled);
+            repo.save(user);
+            return true;
+        }).orElse(false);
+    }
+
+    @Transactional
+    public boolean deleteUser(Long userId) {
+        return repo.findById(userId).map(user -> {
+            if (user.getRole() == UserRole.ADMIN) {
+                return false;
+            }
+            repo.delete(user);
+            return true;
+        }).orElse(false);
     }
 
     @Transactional

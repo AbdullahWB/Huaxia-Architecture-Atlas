@@ -17,10 +17,10 @@
 
     <div class="vstack gap-2 mt-3">
       <div class="bg-white border rounded-4 p-3 hover-card" th:each="p : ${items}"
-           th:with="author=${authorMap[#strings.toLowerCase(p.authorEmail)]}">
+           th:with="author=${p.authorEmail != null ? authorMap[p.authorEmail] : null}">
         <div class="d-flex align-items-center gap-2">
           <img
-            th:if="${author != null and author.avatarUrl != null}"
+            th:if="${author != null and !#strings.isEmpty(author.avatarUrl)}"
             th:src="@{${author.avatarUrl}}"
             class="hx-avatar-sm"
             alt="avatar"

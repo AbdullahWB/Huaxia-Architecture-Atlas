@@ -220,3 +220,18 @@ CREATE TABLE IF NOT EXISTS user_notifications (
 ) ENGINE = InnoDB;
 CREATE INDEX idx_user_notifications_user ON user_notifications(user_id);
 CREATE INDEX idx_user_notifications_created ON user_notifications(created_at);
+
+-- =========================
+-- 12) Unban requests
+-- =========================
+CREATE TABLE IF NOT EXISTS unban_requests (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    user_id BIGINT NOT NULL,
+    email VARCHAR(200) NOT NULL,
+    reason TEXT NULL,
+    status ENUM('PENDING', 'APPROVED', 'REJECTED') NOT NULL DEFAULT 'PENDING',
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_unban_requests_user FOREIGN KEY (user_id) REFERENCES app_users(id) ON DELETE CASCADE
+) ENGINE = InnoDB;
+CREATE INDEX idx_unban_requests_status ON unban_requests(status);
+CREATE INDEX idx_unban_requests_user ON unban_requests(user_id);

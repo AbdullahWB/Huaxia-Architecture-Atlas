@@ -24,7 +24,7 @@ public class SecurityConfig {
                                                    AuthenticationSuccessHandler successHandler) throws Exception {
 
         http.authorizeHttpRequests(auth -> auth
-                .requestMatchers("/login", "/register", "/forgot", "/reset", "/admin/login").permitAll()
+                .requestMatchers("/login", "/register", "/forgot", "/reset", "/unban", "/admin/login").permitAll()
 
                 // User dashboard
                 .requestMatchers("/dashboard/**").hasAnyRole("USER", "ADMIN")

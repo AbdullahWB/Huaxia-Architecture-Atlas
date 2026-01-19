@@ -86,7 +86,7 @@
             <div class="border rounded-3 p-3" th:each="c : ${comments}">
               <div class="d-flex align-items-center gap-2">
                 <img
-                  th:if="${c.user.avatarUrl}"
+                  th:if="${!#strings.isEmpty(c.user.avatarUrl)}"
                   th:src="@{${c.user.avatarUrl}}"
                   class="hx-avatar-sm"
                   alt="avatar"
@@ -101,7 +101,7 @@
                 <div class="border rounded-3 p-2" th:each="r : ${commentReplies[c.id]}">
                   <div class="d-flex align-items-center gap-2">
                     <img
-                      th:if="${r.user.avatarUrl}"
+                      th:if="${!#strings.isEmpty(r.user.avatarUrl)}"
                       th:src="@{${r.user.avatarUrl}}"
                       class="hx-avatar-sm"
                       alt="avatar"

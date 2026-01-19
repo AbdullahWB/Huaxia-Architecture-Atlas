@@ -23,7 +23,7 @@ VALUES -- Your existing 8 (kept as-is)
         'c. 605',
         'Stone segmental arch bridge; major achievement in early bridge engineering.',
         'stone,arch,bridge,engineering,hebei',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ89iRhm9XWVqeBCamNa7mOiotUXbLLK92dOw&s',
     ),
     (
         'Forbidden City (Palace Complex)',
@@ -33,7 +33,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1406-1420',
         'Imperial palace complex with axial planning, courtyards, and timber structures.',
         'palace,courtyard,timber,imperial,beijing',
-        NULL
+        'https://images.pexels.com/photos/34502247/pexels-photo-34502247.jpeg',
     ),
     (
         'Siheyuan Courtyard Residence (Typical)',
@@ -43,7 +43,7 @@ VALUES -- Your existing 8 (kept as-is)
         '18th-19th century',
         'Traditional courtyard house emphasizing symmetry, hierarchy, and enclosed space.',
         'residence,courtyard,vernacular,beijing,qing',
-        NULL
+        'https://images.pexels.com/photos/25637354/pexels-photo-25637354.jpeg',
     ),
     (
         'Hutong Street Layout (Historic)',
@@ -53,7 +53,7 @@ VALUES -- Your existing 8 (kept as-is)
         '15th-19th century',
         'Lane-based urban pattern supporting courtyard housing and neighborhood life.',
         'urban,streets,housing,courtyard,beijing',
-        NULL
+        'https://images.pexels.com/photos/34939602/pexels-photo-34939602.jpeg',
     ),
     (
         'Ancient City Wall (Representative Section)',
@@ -63,7 +63,7 @@ VALUES -- Your existing 8 (kept as-is)
         '14th century',
         'Large-scale defensive wall system with gates and watchtowers; masonry construction.',
         'wall,fortification,masonry,urban,shaanxi',
-        NULL
+        'https://images.pexels.com/photos/29403950/pexels-photo-29403950.jpeg',
     ),
     (
         'Traditional Yamen (Local Government Office)',
@@ -73,7 +73,7 @@ VALUES -- Your existing 8 (kept as-is)
         '17th-19th century',
         'Local administrative office compound; formal halls and courtyard sequence.',
         'government,office,courtyard,administration,qing',
-        NULL
+        'https://images.pexels.com/photos/35143775/pexels-photo-35143775.jpeg',
     ),
     (
         'Classical Garden Residence (Scholars)',
@@ -83,7 +83,7 @@ VALUES -- Your existing 8 (kept as-is)
         '16th-17th century',
         'Residential garden composition with pavilions, rocks, and water features (non-religious).',
         'garden,residence,landscape,jiangsu,ming',
-        NULL
+        'https://images.pexels.com/photos/21938165/pexels-photo-21938165.jpeg',
     ),
     (
         'Academy Courtyard (Study Hall)',
@@ -93,7 +93,7 @@ VALUES -- Your existing 8 (kept as-is)
         '11th-13th century',
         'Educational courtyard complex used for teaching and scholarship.',
         'education,academy,courtyard,song,scholarship',
-        NULL
+        'https://images.pexels.com/photos/30516575/pexels-photo-30516575.jpeg',
     ),
     -- 92 additional named entries (no "Representative" in the name)
     (
@@ -104,7 +104,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1189-1192',
         'Stone bridge over the Yongding River, famed for carved stone lions and historic transport significance.',
         'bridge,stone,masonry,engineering,beijing',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9EtYNyYLd26Imh_GTeB3bXGfVtzE5xYPuNA&s',
     ),
     (
         'Guangji Bridge (Xiangzi Bridge)',
@@ -114,7 +114,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1170-1206',
         'Bridge complex combining stone piers and movable floating sections; repeatedly rebuilt and maintained.',
         'bridge,stone,engineering,water,guangdong',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Guangji_Bridge.JPG/330px-Guangji_Bridge.JPG',
     ),
     (
         'Luoyang Bridge (Wan''an Bridge)',
@@ -124,7 +124,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1053-1059',
         'Early large-scale stone beam bridge using raft foundation techniques in a tidal estuary environment.',
         'bridge,stone,engineering,water,fujian',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNiJnuVxQu9lMOFxG-rv5qzuqUdwnG59SpKw&s',
     ),
     (
         'Anping Bridge (Wuli Bridge)',
@@ -134,7 +134,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1138-1151',
         'Long stone beam bridge supporting coastal transport and commerce in the Quanzhou region.',
         'bridge,stone,masonry,engineering,fujian',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/%E5%AE%89%E6%B5%B7%E9%8E%AE%E7%9A%84%E5%AE%89%E5%B9%B3%E6%A9%8B.JPG/330px-%E5%AE%89%E6%B5%B7%E9%8E%AE%E7%9A%84%E5%AE%89%E5%B9%B3%E6%A9%8B.JPG',
     ),
     (
         'Baodai Bridge',
@@ -144,7 +144,7 @@ VALUES -- Your existing 8 (kept as-is)
         '816 (rebuilt 15th century)',
         'Multi-arch stone bridge spanning canal waters; a landmark of Jiangnan bridge building traditions.',
         'bridge,stone,masonry,water,jiangsu',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNPurbD4q_F0F078QtehO2oSieWCV1inC6SQ&s',
     ),
     (
         'Chengyang Wind and Rain Bridge',
@@ -154,7 +154,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1912-1916',
         'Covered timber bridge serving both crossing and community shelter; notable carpentry and truss logic.',
         'bridge,timber,vernacular,craft,guangxi',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/c/cc/Dong-minority-bridge-1.jpg',
     ),
     (
         'Wuhan Yangtze River Bridge',
@@ -164,7 +164,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1955-1957',
         'First major bridge spanning the Yangtze at Wuhan; integrated rail and roadway deck.',
         'bridge,infrastructure,engineering,transport,hubei',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE6ANPEKU_GzBqj4CuJKNnq-aimI0sor0Pyw&s',
     ),
     (
         'Nanjing Yangtze River Bridge',
@@ -174,7 +174,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1960-1968',
         'Large river crossing combining rail and roadway; iconic modern infrastructure landmark.',
         'bridge,infrastructure,engineering,transport,jiangsu',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNQ4wtMgDifHK-xKwoKV73rtvxYRrCPaFgiQ&s',
     ),
     (
         'Dujiangyan Irrigation System',
@@ -184,7 +184,7 @@ VALUES -- Your existing 8 (kept as-is)
         'c. 256 BCE',
         'Irrigation and flood-control works on the Min River, widely regarded as a major hydraulic engineering achievement.',
         'infrastructure,water,engineering,irrigation,sichuan',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYAQ-zDz1de3jwT43Nf1xKZAeq2rlPXSmM7w&s',
     ),
     (
         'Lingqu Canal',
@@ -194,7 +194,7 @@ VALUES -- Your existing 8 (kept as-is)
         '214 BCE',
         'Canal linking river systems to support transport and logistics; early example of large-scale water engineering.',
         'infrastructure,canal,water,engineering,guangxi',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkEJ8s4ZcbzDkCXSUQDYY7l3VYm2Tl_l-UCA&s',
     ),
     (
         'Beijing-Hangzhou Grand Canal',
@@ -204,7 +204,7 @@ VALUES -- Your existing 8 (kept as-is)
         '604-609 (expanded later)',
         'Major canal network linking north and south; foundational transport corridor for administration and trade.',
         'infrastructure,canal,transport,engineering,water',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHcimkpnCU1rgO2oe-ajfuSzDep-NLBe67mw&s',
     ),
     (
         'Zhengguo Canal',
@@ -214,7 +214,7 @@ VALUES -- Your existing 8 (kept as-is)
         '246-236 BCE',
         'Irrigation canal system improving agricultural productivity in the Guanzhong Plain.',
         'infrastructure,water,engineering,irrigation,shaanxi',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnPqpiCIu7I59qFKO6YeeuQFw1ruSCZEqD4Q&s',
     ),
     (
         'Turpan Karez (Kanh Erjing) Wells System',
@@ -224,7 +224,7 @@ VALUES -- Your existing 8 (kept as-is)
         '18th-19th century (in-use earlier)',
         'Underground water channels and shafts enabling irrigation and settlement in arid environments.',
         'infrastructure,water,engineering,irrigation,xinjiang',
-        NULL
+        'https://xj.antcome.com/upload/attraction/20170419/58f6ebc88d6f8.jpg',
     ),
     (
         'Shanhai Pass (Shanhaiguan)',
@@ -234,7 +234,7 @@ VALUES -- Your existing 8 (kept as-is)
         '1381',
         'Strategic pass where fortifications control the corridor between mountains and sea.',
         'fortification,wall,gate,masonry,hebei',
-        NULL
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/ShanhaiguanGreatWall-end.jpg/250px-ShanhaiguanGreatWall-end.jpg',
     ),
     (
         'Jiayu Pass (Jiayuguan)',
@@ -244,7 +244,7 @@ VALUES -- Your existing 8 (kept as-is)
         'c. 1372',
         'Fortress-pass anchoring the western end of Ming frontier defenses in the Hexi Corridor.',
         'fortification,wall,pass,masonry,gansu',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWqeTmX_dVIZmay-V3IEapt9y35F1CqgGryA&s',
     ),
     (
         'Juyong Pass (Juyongguan)',
@@ -254,7 +254,7 @@ VALUES -- Your existing 8 (kept as-is)
         '14th-16th century',
         'Mountain pass fortified to secure access routes to the capital; layered gate and wall works.',
         'fortification,wall,pass,masonry,beijing',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxtq5c9ZEnw9iUEHASk0dkShEMBgIeFehTZA&s',
     ),
     (
         'Badaling Great Wall',
@@ -264,7 +264,7 @@ VALUES -- Your existing 8 (kept as-is)
         '16th century',
         'Highly developed wall section with towers and parapets; representative of late Ming defensive works.',
         'fortification,wall,tower,masonry,beijing',
-        NULL
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf7zBnPWlK_3Qy6YC9WaIOoUNuyu3Qzz-4jQ&s',
     ),
     (
         'Mutianyu Great Wall',
@@ -1028,23 +1028,212 @@ VALUES (
 -- =========================
 INSERT INTO products (name, description, price, image_url, stock)
 VALUES (
-        'Atlas Field Guide',
-        'Compact guide to courtyard and palace layouts.',
-        29.00,
-        NULL,
-        12
+        'Classic Incense Box (small, copper)',
+        'Classic Incense Box (small, copper) is a heritage craft, small-format incense item inspired by Song aesthetics. Made with copper and finished with a cloud pattern, it keeps a calm look that works well for daily use. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        57.03,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/classic-incense-box-small-copper.png',
+        57
     ),
     (
-        'Courtyard Sketch Set',
-        'Study sketches and site notes for historic compounds.',
-        18.50,
-        NULL,
-        8
+        'Pre-Qin Style Pendant (celadon)',
+        'Pre-Qin Style Pendant (celadon) is a classical Chinese style, medium-format jewelry item inspired by Pre-Qin aesthetics. Made with celadon and finished with an auspicious beast motif, it keeps a minimal look that works well for daily use. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        107.25,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/a-pre-qin-style-pendan-1.png',
+        17
     ),
     (
-        'Architectural Map Print',
-        'Large format print of key pre-1911 sites.',
-        42.00,
-        NULL,
-        5
+        'Antique-Inspired Fairness Pitcher (gilt)',
+        'Antique-Inspired Fairness Pitcher (gilt) is a heritage craft, medium-format tea item inspired by Pre-Qin aesthetics. Made with gilt and finished with a key-fret pattern, it keeps an elegant look that works well for study decor. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        180.82,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/a-antique-inspired-fai-1.png',
+        58
+    ),
+    (
+        'Stone Bookmark - Landscape Scene',
+        'Stone Bookmark - Landscape Scene is a antique-inspired, small-format studio item inspired by Tang aesthetics. Made with stone and finished with a landscape scene, it keeps an artisan-made look that works well for tea table styling. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        104.56,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/gpt-image-1-5-a-stone-bookmark-lan-1.png',
+        44
+    ),
+    (
+        'Antique-Inspired Tea Tray (silver)',
+        'Antique-Inspired Tea Tray (silver) is a heritage craft, small-format tea item inspired by Tang aesthetics. Made with silver and finished with a dragon-phoenix motif, it keeps a calm look that works well for tea table styling. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        150.70,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/gpt-image-1-5-a-antique-inspired-tea-1.png',
+        33
+    ),
+    (
+        'Silver Brush Holder - Auspicious Beast Motif',
+        'Silver Brush Holder - Auspicious Beast Motif is a antique-inspired, small-format studio item inspired by Wei-Jin aesthetics. Made with silver and finished with an auspicious beast motif, it keeps a subtle look that works well for gift giving. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        233.94,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/silver-brush-holder.png',
+        50
+    ),
+    (
+        'Hemp Guardian Beast Figurine - Landscape Scene',
+        'Hemp Guardian Beast Figurine - Landscape Scene is a antique-inspired, medium-format decor item inspired by Qin-Han aesthetics. Made with hemp and finished with a landscape scene, it keeps a warm-toned look that works well for daily use. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        64.03,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/a-hemp-guardian-beast-1.png',
+        25
+    ),
+    (
+        'Desk Object Mini: Flower Holder (Republic era)',
+        'Desk Object Mini: Flower Holder (Republic era) is a heritage craft, small-format desk object item inspired by Republic era aesthetics. Made with lacquer and finished with a cloud pattern, it keeps a classic look that works well for tea table styling. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        99.31,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/desk-object-mini-flower-holder.png',
+        51
+    ),
+    (
+        'Classic Guardian Beast Figurine (medium, xuan paper)',
+        'Classic Guardian Beast Figurine (medium, xuan paper) is a antique-inspired, medium-format decor item inspired by Wei-Jin aesthetics. Made with xuan paper and finished with a lotus motif, it keeps an artisan-made look that works well for daily use. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        172.05,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/classic-guardian-beast-figurine-1.png',
+        34
+    ),
+    (
+        'Decor Mini: Lantern Ornament (Sui-Tang)',
+        'Decor Mini: Lantern Ornament (Sui-Tang) is a heritage craft, small-format decor item inspired by Sui-Tang aesthetics. Made with bamboo and finished with a four gentlemen motif, it keeps a warm-toned look that works well for gift giving. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        151.58,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/decor-mini-lantern-ornament-sui-tang.png',
+        50
+    ),
+    (
+        'Decor Mini: Guardian Beast Figurine (Han)',
+        'Decor Mini: Guardian Beast Figurine (Han) is a museum-style replica design, medium-format decor item inspired by Han aesthetics. Made with gauze silk and finished with a seal-script accent, it keeps an elegant look that works well for collection display. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        140.27,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/decor-mini-guardian-beast-figurine-han.png',
+        20
+    ),
+    (
+        'Zisha Clay Ink Dish - Scrollwork',
+        'Zisha Clay Ink Dish - Scrollwork is a classical Chinese style, medium-format studio item inspired by Tang aesthetics. Made with zisha clay and finished with a scrollwork, it keeps a minimal look that works well for desk display. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        104.43,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/zisha-clay-ink-dish-scrollwork.png',
+        29
+    ),
+    (
+        'Qing Style Incense Box (brass)',
+        'Qing Style Incense Box (brass) is a museum-style replica design, medium-format incense item inspired by Qing aesthetics. Made with brass and finished with a scrollwork, it keeps a subtle look that works well for tea table styling. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        145.60,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/qing-style-incense-box-brass.png',
+        20
+    ),
+    (
+        'Nanmu Wood Brush Holder - Seal-Script Accent',
+        'Nanmu Wood Brush Holder - Seal-Script Accent is a heritage craft, small-format studio item inspired by Tang aesthetics. Made with nanmu wood and finished with a seal-script accent, it keeps a subtle look that works well for tea table styling. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        97.28,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/nanmu-wood-brush-holder.png',
+        60
+    ),
+    (
+        'Antique-Inspired Leisure Seal (brass)',
+        'Antique-Inspired Leisure Seal (brass) is a antique-inspired, medium-format seal item inspired by Qin-Han aesthetics. Made with brass and finished with a dragon-phoenix motif, it keeps a refined look that works well for desk display. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        75.43,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/antique-inspired-leisure-seal-brass.png',
+        14
+    ),
+    (
+        'Classic Ring (small, jade)',
+        'Classic Ring (small, jade) is a museum-style replica design, small-format jewelry item inspired by Han aesthetics. Made with jade and finished with a key-fret pattern, it keeps a classic look that works well for collection display. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        214.74,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/classic-ring-small-jade.png',
+        39
+    ),
+    (
+        'Classic Tea Tray (small, nanmu wood)',
+        'Classic Tea Tray (small, nanmu wood) is a classical Chinese style, small-format tea item inspired by Sui-Tang aesthetics. Made with nanmu wood and finished with a lotus motif, it keeps a calm look that works well for gift giving. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        206.89,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/classic-tea-tray-small-nanmu-wood.png',
+        51
+    ),
+    (
+        'Ru Ware Style Porcelain Earrings - Lotus Motif',
+        'Ru Ware Style Porcelain Earrings - Lotus Motif is a heritage craft, medium-format jewelry item inspired by Song aesthetics. Made with ru ware style porcelain and finished with a lotus motif, it keeps an elegant look that works well for desk display. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        198.70,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/ru-ware-style-porcelain-earrings.png',
+        20
+    ),
+    (
+        'Wei-Jin Style Gaiwan (jade)',
+        'Wei-Jin Style Gaiwan (jade) is a museum-style replica design, small-format tea item inspired by Wei-Jin aesthetics. Made with jade and finished with an auspicious beast motif, it keeps a warm-toned look that works well for collection display. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        207.56,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/wei-jin-style-gaiwan-jade-is-a-museum.png',
+        38
+    ),
+    (
+        'Classic Incense Burner (small, bamboo)',
+        'Classic Incense Burner (small, bamboo) is a heritage craft, small-format incense item inspired by Tang aesthetics. Made with bamboo and finished with a landscape scene, it keeps an artisan-made look that works well for study decor. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        72.05,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/classic-incense-burner-small-bamboo.png',
+        21
+    ),
+    (
+        'Seal Mini: Leisure Seal (Pre-Qin)',
+        'Seal Mini: Leisure Seal (Pre-Qin) is a museum-style replica design, medium-format seal item inspired by Pre-Qin aesthetics. Made with jade and finished with a key-fret pattern, it keeps a subtle look that works well for daily use. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        187.05,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/seal-mini-leisure-seal-pre-qin.png',
+        22
+    ),
+    (
+        'Tang Style Flower Holder (nanmu wood)',
+        'Tang Style Flower Holder (nanmu wood) is a antique-inspired, small-format desk object item inspired by Tang aesthetics. Made with nanmu wood and finished with an auspicious beast motif, it keeps a classic look that works well for desk display. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        177.70,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/tang-style-flower-holder-nanmu-wood.png',
+        29
+    ),
+    (
+        'Song Style Incense Holder (leather)',
+        'Song Style Incense Holder (leather) is a classical Chinese style, medium-format incense item inspired by Song aesthetics. Made with leather and finished with an auspicious beast motif, it keeps a classic look that works well for gift giving. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        94.04,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/song-style-incense-holder-leather.png',
+        46
+    ),
+    (
+        'White Porcelain Ring - Four Gentlemen Motif',
+        'White Porcelain Ring - Four Gentlemen Motif is a classical Chinese style, medium-format jewelry item inspired by Pre-Qin aesthetics. Made with white porcelain and finished with a four gentlemen motif, it keeps a subtle look that works well for daily use. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        61.73,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/white-porcelain-ring.png',
+        58
+    ),
+    (
+        'Classic Bracelet (medium, bamboo)',
+        'Classic Bracelet (medium, bamboo) is a antique-inspired, medium-format jewelry item inspired by Han aesthetics. Made with bamboo and finished with a four gentlemen motif, it keeps a subtle look that works well for study decor. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        180.90,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/classic-bracelet-medium-bamboo.png',
+        60
+    ),
+    (
+        'Tang Style Incense Holder (celadon)',
+        'Tang Style Incense Holder (celadon) is a heritage craft, medium-format incense item inspired by Tang aesthetics. Made with celadon and finished with a landscape scene, it keeps a refined look that works well for collection display. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        175.84,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/tang-style-incense-holder-celadon.png',
+        60
+    ),
+    (
+        'Incense Mini: Incense Stamp Set (Sui-Tang)',
+        'Incense Mini: Incense Stamp Set (Sui-Tang) is a museum-style replica design, small-format incense item inspired by Sui-Tang aesthetics. Made with silver and finished with an auspicious beast motif, it keeps a calm look that works well for gift giving. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        249.03,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/incense-mini-incense-stamp-set.png',
+        14
+    ),
+    (
+        'Leather Folding Fan - Auspicious Beast Motif',
+        'Leather Folding Fan - Auspicious Beast Motif is a classical Chinese style, small-format studio item inspired by Wei-Jin aesthetics. Made with leather and finished with an auspicious beast motif, it keeps a refined look that works well for desk display. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        160.57,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/leather-folding-fan-auspicious.png',
+        34
+    ),
+    (
+        'Incense Mini: Incense Holder (Yuan)',
+        'Incense Mini: Incense Holder (Yuan) is a heritage craft, medium-format incense item inspired by Yuan aesthetics. Made with Hetian jade and finished with a seal-script accent, it keeps a minimal look that works well for gift giving. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        171.12,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/incense-mini-incense-holder-yuan.png',
+        42
+    ),
+    (
+        'Classic Small Jar (medium, copper)',
+        'Classic Small Jar (medium, copper) is a heritage craft, medium-format desk object item inspired by Wei-Jin aesthetics. Made with copper and finished with a lotus motif, it keeps a warm-toned look that works well for daily use. This is a modern product (not an archaeological artifact), designed for practical use and tasteful display.',
+        119.90,
+        'https://cdn.jsdelivr.net/gh/mehedi8603651/ancient@main/classic-small-jar-medium-copper.png',
+        46
     );

@@ -9,16 +9,24 @@
       <div class="d-flex align-items-center gap-3">
         <div class="hx-avatar-lg">
           <img
-            th:if="${user.avatarUrl}"
+            th:if="${!#strings.isEmpty(user.avatarUrl)}"
             th:src="@{${user.avatarUrl}}"
             alt="avatar"
+            onerror="this.classList.add('d-none'); this.parentElement.querySelector('.hx-avatar-fallback')?.classList.remove('d-none');"
           />
-          <span th:if="${user.avatarUrl == null}" th:text="${#strings.substring(user.username,0,1)}">U</span>
+          <span
+            class="hx-avatar-fallback"
+            th:classappend="${!#strings.isEmpty(user.avatarUrl)} ? 'd-none' : ''"
+            th:text="${#strings.substring(user.username,0,1)}"
+          >U</span>
         </div>
         <div>
           <div class="hx-breadcrumb mb-2">Account <span>Dashboard</span></div>
           <h1 class="h4 mb-1" th:text="'Welcome, ' + ${user.username}">Welcome</h1>
-          <p class="text-muted mb-0" th:text="${user.bio} ?: 'Add a short description to your profile.'">
+          <p class="text-muted mb-0" th:if="${user.bio}" th:text="${user.bio}">
+            Add a short description to your profile.
+          </p>
+          <p class="text-muted mb-0" th:if="${user.bio == null}">
             Add a short description to your profile.
           </p>
         </div>
@@ -34,7 +42,9 @@
         </div>
         <div class="display-6 fw-semibold text-white" th:text="${postCount}">0</div>
         <p class="text-muted mb-2">Pending approval and published posts.</p>
-        <div class="hx-spark"></div>
+        <div class="progress hx-progress" role="progressbar" aria-label="Posts progress">
+          <div class="progress-bar" th:style="'width:' + ${postProgress} + '%'"></div>
+        </div>
       </div>
 
       <div class="hx-card">
@@ -44,7 +54,9 @@
         </div>
         <div class="display-6 fw-semibold text-white" th:text="${orderCount}">0</div>
         <p class="text-muted mb-2">Purchases from the store.</p>
-        <div class="hx-spark"></div>
+        <div class="progress hx-progress" role="progressbar" aria-label="Orders progress">
+          <div class="progress-bar" th:style="'width:' + ${orderProgress} + '%'"></div>
+        </div>
       </div>
 
       <div class="hx-card">
@@ -54,7 +66,9 @@
         </div>
         <div class="display-6 fw-semibold text-white" th:text="${postLikeCount}">0</div>
         <p class="text-muted mb-2">Posts you have liked.</p>
-        <div class="hx-spark"></div>
+        <div class="progress hx-progress" role="progressbar" aria-label="Post likes progress">
+          <div class="progress-bar" th:style="'width:' + ${postLikeProgress} + '%'"></div>
+        </div>
       </div>
 
       <div class="hx-card">
@@ -64,7 +78,9 @@
         </div>
         <div class="display-6 fw-semibold text-white" th:text="${buildingLikeCount}">0</div>
         <p class="text-muted mb-2">Buildings you have liked.</p>
-        <div class="hx-spark"></div>
+        <div class="progress hx-progress" role="progressbar" aria-label="Building likes progress">
+          <div class="progress-bar" th:style="'width:' + ${buildingLikeProgress} + '%'"></div>
+        </div>
       </div>
     </div>
 
@@ -119,15 +135,27 @@
           <h2 class="h6 text-white mb-2">Admin replies</h2>
           <div class="vstack gap-2" th:if="${adminMessages != null && !#lists.isEmpty(adminMessages)}">
             <div class="border rounded-3 p-3" th:each="m : ${adminMessages}">
-              <div class="small text-muted" th:text="${m.subject} ?: 'No subject'">Subject</div>
-              <div class="mt-1" th:text="${m.message}">Message</div>
-              <div class="mt-2" th:if="${m.adminReply}">
-                <div class="small text-muted">Admin reply</div>
-                <div class="white-space-prewrap" th:text="${m.adminReply}">Reply</div>
-              </div>
-              <div class="mt-2" th:if="${m.aiReply}">
-                <div class="small text-muted">AI draft</div>
-                <div class="white-space-prewrap" th:text="${m.aiReply}">AI reply</div>
+              <div class="d-flex justify-content-between align-items-start gap-3">
+                <div>
+                  <div class="small text-muted" th:if="${m.subject}" th:text="${m.subject}">Subject</div>
+                  <div class="small text-muted" th:if="${m.subject == null}">No subject</div>
+                  <div class="fw-semibold mt-1"
+                       th:text="${m.adminReply != null ? 'Admin reply' : (m.aiReply != null ? 'AI draft' : 'Message')}">Admin reply</div>
+                  <div class="small text-muted mt-1"
+                       th:text="${#strings.abbreviate(m.adminReply != null ? m.adminReply : (m.aiReply != null ? m.aiReply : m.message), 160)}">Preview</div>
+                  <div class="small text-muted mt-2" th:if="${m.createdAt != null}"
+                       th:text="${#temporals.format(m.createdAt, 'yyyy-MM-dd HH:mm')}">Date</div>
+                </div>
+                <button
+                  class="btn btn-outline-secondary btn-sm"
+                  type="button"
+                  data-message-open
+                  data-bs-toggle="modal"
+                  data-bs-target="#hxUserMessageModal"
+                  th:attr="data-message-subject=${m.subject},data-message-body=${m.message},data-message-admin=${m.adminReply},data-message-ai=${m.aiReply},data-message-date=${m.createdAt != null ? #temporals.format(m.createdAt, 'yyyy-MM-dd HH:mm') : ''}"
+                >
+                  Read message
+                </button>
               </div>
             </div>
           </div>
@@ -152,6 +180,48 @@
               <li>Like buildings to keep your favorites easy to find.</li>
               <li>Store items can be purchased anytime after login.</li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="hxUserMessageModal"
+      tabindex="-1"
+      aria-labelledby="hxUserMessageModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-dark text-white border-0">
+          <div class="modal-header border-0">
+            <h5 class="modal-title" id="hxUserMessageModalLabel">Message</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div id="hxUserMessageMeta" class="small text-muted">
+              Message details
+            </div>
+            <div class="mt-3">
+              <div class="small text-muted">Your message</div>
+              <div id="hxUserMessageBody" class="white-space-prewrap"></div>
+            </div>
+            <div class="mt-3" id="hxUserMessageAdminWrap">
+              <div class="small text-muted">Admin reply</div>
+              <div id="hxUserMessageAdmin" class="white-space-prewrap"></div>
+            </div>
+            <div class="mt-3" id="hxUserMessageAiWrap">
+              <div class="small text-muted">AI draft</div>
+              <div id="hxUserMessageAi" class="white-space-prewrap"></div>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
