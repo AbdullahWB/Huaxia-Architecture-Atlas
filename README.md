@@ -1,4 +1,4 @@
-﻿![Huaxia Architecture Atlas](https://i.ibb.co/W4G31P6S/image.png)
+﻿![Huaxia Architecture Atlas](./asset/hero.png)
 
 # Huaxia Architecture Atlas
 
