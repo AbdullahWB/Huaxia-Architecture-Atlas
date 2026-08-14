@@ -17,8 +17,7 @@ Desktop.ini
 .DS_Store
 
 # Env and secrets
-.env
-.env.local
+*.env
 .env.*.local
 *.key
 *.pem
